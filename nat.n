@@ -1,0 +1,30 @@
+# 2.1 Peano systems
+
+Axiom.  There exists a type ℕ (the natural numbers) with an element 1 : ℕ and a function S : ℕ → ℕ such that
+
+  1. For all x : ℕ, S(x) ≠ 1.  [Axiom P1]
+  2. For all x, y : ℕ, if x ≠ y then S(x) ≠ S(y).  [Axiom P2]
+  3. Let B : Set(ℕ).  If 1 ∈ B, and for all x : ℕ x ∈ B implies S(x) ∈ B, then B = ℕ.  [Axiom P3]
+
+# Every element different from 1 is a successor.
+Theorem.  ∀x : ℕ . x = 1 ∨ (∃y : ℕ . x = S(y)).
+
+Proof.  Let
+
+    B = { x ∈ ℕ | x = 1 or there exists y : ℕ such that x = S(y) }.
+
+We must show that ℕ = B.  First, it is obvious that 1 ∈ B.  Second, assume x ∈ B.  Then there exists y : ℕ such that S(x) = S(y).  Thus S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  Therefore by [Axiom P3] ℕ = B.
+
+# No object is its own successor.
+Theorem.  For all x : ℕ, S(x) ≠ x.
+
+Proof.  Let B = { x ∈ ℕ | S(x) ≠ x }.  We must prove that B = ℕ.  First, 1 ∈ B by [Axiom P1].  Second, assume x ∈ B.  Then S(x) ≠ x.  Since S(x) ≠ x, it follows by [Axiom P2] that S(S(x)) ≠ S(x).  Hence S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  By [Axiom P3] ℕ = B.
+
+# 2.3 Addition
+
+Axiom.  There is a binary operation + : ℕ → ℕ → ℕ such that for all x, y : ℕ,
+
+  a. x + 1 = S(x).
+  b. x + S(y) = S(x + y).
+
+Lemma.  For all x, y : ℕ, x + (y + 1) = (x + y) + 1.
