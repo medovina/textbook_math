@@ -115,3 +115,14 @@ Proof.
   Now suppose that y < v.  Then v = y + u for some u : ℕ.  Hence S(v) = S(y + u) = y + S(u).  Thus y < S(v).
 
   In all cases S(v) < y or S(v) = y or y < S(v).  Hence S(v) ∈ A.  We have shown that for all v ∈ A, S(v) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 4.2.  Let x : ℕ.
+
+  a. x < S(x).
+  b. There is no y : ℕ such that x < y < S(x).
+
+Proof.
+
+  a. x + 1 = S(x).  Therefore x < S(x).
+
+  b. Let y : ℕ, and assume that x < y < S(x).  Since x < y we obtain x + z = y for some z : ℕ.  By Theorem 1.1, z = 1 or there is some u : ℕ such that z = S(u).  If z = 1 then S(x) = x + 1 = x + z = y, contradicting Theorem 4.1.c since y < S(x).  If z = S(u) for some u : ℕ then S(x) + u = x + S(u) = x + z = y, so S(x) < y, contradicting Theorem 4.1.c since y < S(x).  In either case we have a contradiction.
