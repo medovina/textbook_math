@@ -85,3 +85,33 @@ Proof.  Let x, y : ℕ.  Let A = { z : ℕ | x + z = y + z implies x = y }.  We 
 Theorem 3.6.  y ≠ x + y for all x, y : ℕ.
 
 Proof.  Let x : ℕ.  Let A = { y ∈ ℕ | y ≠ x + y }.  We must prove that A = ℕ.  Clearly 1 ∈ A since 1 ≠ x + 1 by Axiom 3.1.a and Axiom 1.1.  Assume that y ∈ A.  Then y ≠ x + y.  Hence by Axiom 1.2 S(y) ≠ S(x + y).  But S(x + y) = x + S(y) by Axiom 3.1.b.  Hence S(y) ≠ x + S(y), so S(y) ∈ A.  We have shown that y ∈ A implies S(y) ∈ A.  By [induction on ℕ] A = ℕ.
+
+# 2.4 The order relation
+
+Definition.  For all x, y : ℕ, x < y if there is some z : ℕ such that x + z = y.
+
+Theorem 4.1.
+
+  a. x ≮ x for all x : ℕ.   [irreflexivity of < on ℕ]
+  b. x < y and y < z implies x < z for all x, y, z : ℕ.  [transitivity of < on ℕ]
+  c. Let x, y : ℕ.  Precisely one of x < y or x = y or y < x holds.  [trichotomy on ℕ]
+
+Proof.
+
+  a. Let x : ℕ.  If x < x then there exists z : ℕ such that x + z = x.  But x + z ≠ x for all z : ℕ by Theorem 3.6 and Theorem 3.4.  Hence x ≮ x.
+
+  b. Let x, y, z : ℕ.  Assume x < y and y < z.  Then x + u = y and y + v = z for some u, v : ℕ.  Then x + (u + v) = (x + u) + v = y + v = z.  Thus there exists w : ℕ such that x + w = z, so x < z.
+
+  c. If x < y and x = y then x < x, contradicting [irreflexivity of < on ℕ].  If x = y and y < x, then x < x, again contradicting [irreflexivity of < on ℕ].  If x < y and y < x then by [transitivity of < on ℕ] we have x < x, contradicting [irreflexivity of < on ℕ].  So at most one of x < y or x = y or y < x holds.
+
+  We will now prove that at least one of x < y or x = y or y < x holds.  Let A = { x : ℕ | x < y or x = y or y < x }.  We must prove that A = ℕ.  First, by Theorem 1.1 we have y = 1 or there exists z : ℕ such that y = S(z).  Hence by Axiom 3.1.a and Lemma 3.3.a y = 1 or there exists z : ℕ such that 1 + z = y.  So y = 1 or 1 < y, so 1 ∈ A.
+
+  Second, assume v ∈ A.  Then v < y or v = y or y < v.
+
+  Suppose that v < y.  Then v + z = y for some z : ℕ.  By Theorem 1.1, z = 1 or there exists u : ℕ such that z = S(u).  If z = 1 then v + 1 = y, that is S(v) = y.  If z = S(u) for some u : ℕ then S(v) + u = v + S(u) = v + z = y, hence S(v) < y.  So S(v) < y or S(v) = y.
+
+  Now suppose that v = y.  Then S(v) = S(y) = y + 1.  Hence y < S(v).
+
+  Now suppose that y < v.  Then v = y + u for some u : ℕ.  Hence S(v) = S(y + u) = y + S(u).  Thus y < S(v).
+
+  In all cases S(v) < y or S(v) = y or y < S(v).  Hence S(v) ∈ A.  We have shown that for all v ∈ A, S(v) ∈ A.  By [induction on ℕ] A = ℕ.
