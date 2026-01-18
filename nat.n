@@ -10,13 +10,13 @@ Theorem 1.1.  For all x : ℕ, x = 1 or there exists some y : ℕ such that x = 
 
 Proof.  Let
 
-    B = { x ∈ ℕ | x = 1 or there exists some y : ℕ such that x = S(y) }.
+    B = { x : ℕ | x = 1 or there exists some y : ℕ such that x = S(y) }.
 
 We must show that ℕ = B.  First, it is obvious that 1 ∈ B.  Second, assume x ∈ B.  Hence there exists y : ℕ such that S(x) = S(y).  Thus S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  Therefore by Axiom 1.3 ℕ = B.
 
 Theorem 1.2.  For all x : ℕ, S(x) ≠ x.
 
-Proof.  Let B = { x ∈ ℕ | S(x) ≠ x }.  We must prove that B = ℕ.  First, 1 ∈ B by Axiom 1.1.  Second, assume x ∈ B.  Then S(x) ≠ x.  Since S(x) ≠ x, it follows by Axiom 1.2 that S(S(x)) ≠ S(x).  Hence S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  By Axiom 1.3 ℕ = B.
+Proof.  Let B = { x : ℕ | S(x) ≠ x }.  We must prove that B = ℕ.  First, 1 ∈ B by Axiom 1.1.  Second, assume x ∈ B.  Then S(x) ≠ x.  Since S(x) ≠ x, it follows by Axiom 1.2 that S(S(x)) ≠ S(x).  Hence S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  By Axiom 1.3 ℕ = B.
 
 # 2.3 Addition
 
@@ -25,7 +25,9 @@ Axiom 3.1.  There is a binary operation + : ℕ → ℕ → ℕ such that for al
   a. x + 1 = S(x).
   b. x + S(y) = S(x + y).
 
-Lemma 3.1.1.  For all x, y : ℕ, x + (y + 1) = (x + y) + 1.
+Lemma 3.1.1.  Let x, y : ℕ.  x + (y + 1) = (x + y) + 1.
+
+Proof.  By Axiom 3.1.b, x + S(y) = S(x + y).  By Axiom 3.1.a, x + (y + 1) = (x + y) + 1.
 
 Theorem 3.2 (Associativity of Addition).
 
@@ -43,3 +45,33 @@ We must show that A = ℕ.  First, 1 ∈ A since x + (y + 1) = (x + y) + 1 by Le
                         = (x + y) + S(z)    by Axiom 3.1.b.
 
 Thus S(z) ∈ A.  We have shown that z ∈ A implies S(z) ∈ A.  Hence by [induction on ℕ] ℕ = A.
+
+Lemma 3.3.
+
+  a. x + 1 = 1 + x for all x : ℕ.
+  b. S(y) + x = S(y + x) for all x, y : ℕ.
+
+Proof.
+
+  a. Let A = { x : ℕ | x + 1 = 1 + x }.  We must show that A = ℕ.  First, 1 ∈ A since 1 + 1 = 1 + 1.  Second, assume x ∈ A.  Then x + 1 = 1 + x.  Hence
+
+    S(x) + 1 = (x + 1) + 1    by Axiom 3.1.a
+                  = (1 + x) + 1    by the inductive hypothesis
+                  = 1 + (x + 1)    by Theorem 3.2
+                  = 1 + S(x)         by Axiom 3.1.a.
+
+  Thus S(x) ∈ A.  We have shown that x ∈ A implies S(x) ∈ A.  By [induction on ℕ] A = ℕ.
+
+  b. Let x, y : ℕ.  S(y) + x = (y + 1) + x = y + (1 + x) = y + (x + 1) = (y + x) + 1 = S(y + x).
+
+Theorem 3.4 (Commutativity of Addition).
+
+  x + y = y + x   for all x, y : ℕ.
+
+Proof.  Let x : ℕ.  Let A = { y : ℕ | x + y = y + x }.  We must show that A = ℕ.  First, 1 ∈ A since x + 1 = 1 + x by Lemma 3.3.a.  Second, assume y ∈ A.  Then x + y = y + x.  Hence
+
+  x + S(y) = S(x + y)
+                = S(y + x)
+                = S(y) + x  by Lemma 3.3.b.
+
+Thus S(y) ∈ A.  Hence y ∈ A implies S(y) ∈ A.  Therefore by [induction on ℕ] A = ℕ.
