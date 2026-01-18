@@ -75,3 +75,9 @@ Proof.  Let x : ℕ.  Let A = { y : ℕ | x + y = y + x }.  We must show that A 
                 = S(y) + x  by Lemma 3.3.b.
 
 Thus S(y) ∈ A.  Hence y ∈ A implies S(y) ∈ A.  Therefore by [induction on ℕ] A = ℕ.
+
+Theorem 3.5 (Cancellation Law for Addition).
+
+  x + z = y + z implies x = y   for all x, y, z : ℕ.
+
+Proof.  Let x, y : ℕ.  Let A = { z : ℕ | x + z = y + z implies x = y }.  We must prove that A= ℕ.  First, x + 1 = y + 1 implies x = y by Axiom 1.2 and Axiom 3.1.a, so 1 ∈ A.  Second, assume z ∈ A.  Then x + z = y + z implies x = y.  Now assume x + S(z) = y + S(z).  Then by Axiom 3.1.b S(x + z) = S(y + z).  Therefore by Axiom 1.2 x + z = y + z.  Hence by inductive hypothesis x = y.  Thus we have shown that x + S(z) = y + S(z) implies x = y, so S(z) ∈ A.  Therefore z ∈ A implies S(z) ∈ A.  By [induction on ℕ] A = ℕ.
