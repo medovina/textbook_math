@@ -135,9 +135,21 @@ Theorem 4.3.  Let x, y, z : ℕ.
 
   a. x ≤ x.  [reflexivity of ≤ on ℕ]
   b. If x < y and y ≤ z then x < z.
+  c. If x ≤ y and y < z then x < z.
+  d. If x ≤ y and y ≤ z then x ≤ z.  [transitivity of ≤ on ℕ]
+  e. x ≤ y or y ≤ x.
+  f. If x ≤ y and y ≤ x then x = y.
 
 Proof.
 
   a. x = x.
 
   b. Assume that x < y and y ≤ z.  Since y ≤ z we have y = z or y < z.  If y = z then x < z.  If y = z then x < z by substitutivity of equality.  If y < z then x < z by Theorem 4.1.b.
+
+  c. Left to the reader.
+
+  d. Follows from Theorem 4.3.b and Theorem 4.3.c and the transitivity of equality.
+
+  e. Follows from Theorem 4.1.c.
+
+  f. Assume that x ≤ y and y ≤ x.  It follows by definition that x = y or x < y, and x = y or y < x.  If x ≠ y then x < y and y < x, contradicting Theorem 4.1.c.
