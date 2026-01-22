@@ -187,3 +187,39 @@ Proof.
   g. Follows easily from Theorem 4.4.e.
 
   h. Follows easily from Theorem 4.4.e.
+
+# Set-related definitions, for the moment only on Set(ℕ)
+
+Definition.  ∅ = { x : ℕ | x ≠ x }.
+
+Definition.  For all S : Set(ℕ), S is empty iff there is no n : ℕ such that n ∈ S.  S is nonempty iff S is not empty.
+
+Definition.  For all A, B : Set(ℕ), A ∩ B = { x : ℕ | x ∈ A and x ∈ B }.
+
+# Least number principle
+
+Definition.  For all A : Set(ℕ) and z : ℕ, z is a least element of A if z ∈ A and for all u : ℕ, if u ∈ A then z ≤ u.
+
+Lemma 4.4.1.  Let A : Set(ℕ).  Let x, y : ℕ.  If x is a least element of A, and y is a least element of A then x = y.
+
+Proof.  By Theorem 4.3.f.
+
+Lemma 4.4.2.  Let A : Set(ℕ).  Suppose that 1 ∈ A.  Then 1 is a least element of A.
+
+Theorem 4.5 (Least Number Principle). Let A : Set(ℕ).  Suppose that A is nonempty.  Then there exists some x : ℕ such that x is a least element of A.
+
+Proof.  We know that A ≠ ∅.  Assume there is no x : ℕ such that x is a least element of A.  We will show that this leads to a contradiction.  Let
+
+    B = { x : ℕ | for all u : ℕ, if u ≤ x then u ∉ A }.
+
+Observe that for all x ∈ B, x ∉ A.  We will show by [induction on ℕ] that B = ℕ.
+
+First assume that 1 ∉ B.  Then there is some u : ℕ such that u ≤ 1 and u ∈ A.  If u ≤ 1 then u = 1 by Theorem 4.4.a.  Thus 1 ∈ A.  But then 1 is a least element of A, contradicting our assumption.  Hence 1 ∈ B.
+
+Let x ∈ B.  Then
+
+    for all u : ℕ, if u ≤ x then u ∉ A.
+
+If S(x) ∈ A then by Theorem 4.2.b S(x) is a least element of A, which is a contradiction.  So S(x) ∉ A.  Hence by Theorem 4.2.b for all u : ℕ, if u ≤ S(x) then u ∉ A.  Then S(x) ∈ B.
+
+We have shown that for all x ∈ B, S(x) ∈ B.  By [induction on ℕ] B = ℕ.  But B ∩ A = ∅.  So A is empty, contradicting our assumption that A is nonempty.
