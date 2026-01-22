@@ -153,3 +153,37 @@ Proof.
   e. Follows from Theorem 4.1.c.
 
   f. Assume that x ≤ y and y ≤ x.  It follows by definition that x = y or x < y, and x = y or y < x.  If x ≠ y then x < y and y < x, contradicting Theorem 4.1.c.
+
+# helper for Theorem 4.4.c
+Lemma 4.3.1.  Let x, y, z : ℕ.  If x < y then x + z < y + z.
+
+Proof.  Assume that x < y.  Then x + w = y for some w : ℕ.  Hence (x + z) + w = (x + w) + z = y + z.  Thus x + z < y + z.
+
+Theorem 4.4.  Let x, y, z, u, v : ℕ.
+
+  a. If x ≠ 1 then 1 < x.
+  b. x < x + y.
+  c. x < y if and only if x + z < y + z.
+  d. x ≤ y if and only if x + z ≤ y + z.
+  e. If x < y and u < v then x + u < y + v.
+  f. If x < y and u ≤ v then x + u < y + v.
+  g. If x ≤ y and u < v then x + u < y + v.
+  h. If x ≤ y and u ≤ v then x + u ≤ y + v.
+
+Proof.
+
+  a. Assume that x ≠ 1.  Then by Theorem 1.1 there is some u : ℕ such that x = S(u).  Hence x = u + 1 = 1 + u for some u : ℕ.  Therefore 1 < x.
+
+  b. There is some u : ℕ such that x + u = x + y.  Hence by definition x < x + y.
+
+  c. If x < y then x + z < y + z by Lemma 4.3.1.  Assume x + z < y + z.  We shall prove that x < y by reductio ad absurdum.  Assume that x ≮ y.  By Theorem 4.1.c, x = y or y < x.  But if x = y then x + z = y + z, contradicting x + z < y + z.  Likewise, if y < x then by Lemma 4.3.1 y + z < x + z, contradicting x + z < y + z.
+
+  d. Follows easily from Theorem 4.4.c and Theorem 3.5.
+
+  e. Assume x < y and u < v.  By Theorem 4.4.c, x + u < y + u and y + u < y + v.  Hence by Theorem 4.1.b x + u < y + v.
+
+  f. Follows easily from Theorem 4.4.e.
+
+  g. Follows easily from Theorem 4.4.e.
+
+  h. Follows easily from Theorem 4.4.e.
