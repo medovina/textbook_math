@@ -301,3 +301,25 @@ Proof.  Consider any x : ℕ. Let A = { y : ℕ | x · y = y · x }.  We must pr
               = S(y) · x            by [equation α].
 
 Thus S(y) ∈ A.  We have shown that for all y ∈ A, S(y) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 5.5 (Associativity of Multiplication).
+
+    x · (y · z) = (x · y) · z     for all x, y, z : ℕ.
+
+Proof.  Consider any x, y : ℕ.  Let
+
+  B = { z : ℕ | x · (y · z) = (x · y) · z }.
+
+We have
+
+    x · (y · 1) = x · y           by [equation γ]
+                   = (x · y) · 1    by [equation γ].
+
+So 1 ∈ B.  Let z ∈ B.  Thus x · (y · z) = (x · y) · z.  Hence
+
+    x · (y · S(z)) = x · (y · z + y)        by [equation δ]
+                       = x · (y · z) + x · y   by Theorem 5.2.a
+                       = (x · y) · z + x · y   by the inductive hypothesis
+                       = (x · y) · S(z)          by [equation δ].
+
+Thus S(z) ∈ B.  We have shown that for all z ∈ B, S(z) ∈ B.  By [induction on ℕ] B = ℕ.
