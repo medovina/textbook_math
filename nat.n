@@ -22,12 +22,12 @@ Proof.  Let B = { x : ℕ | S(x) ≠ x }.  We must prove that B = ℕ.  First, 1
 
 Axiom 3.1.  There is a binary operation + : ℕ → ℕ → ℕ such that for all x, y : ℕ,
 
-  a. x + 1 = S(x).
-  b. x + S(y) = S(x + y).
+  a. x + 1 = S(x).                [equation α]
+  b. x + S(y) = S(x + y).     [equation β]
 
-Lemma 3.1.1.  Let x, y : ℕ.  x + (y + 1) = (x + y) + 1.
+Lemma 3.1.1.  Let x, y : ℕ.  x + (y + 1) = (x + y) + 1.  [equation β']
 
-Proof.  By Axiom 3.1.b, x + S(y) = S(x + y).  By Axiom 3.1.a, x + (y + 1) = (x + y) + 1.
+Proof.  By [equation β] and [equation α].
 
 Theorem 3.2 (Associativity of Addition).
 
@@ -37,12 +37,12 @@ Proof. Let x, y : ℕ.  Let
 
   A = { z : ℕ | x + (y + z) = (x + y) + z }.
 
-We must show that A = ℕ.  First, 1 ∈ A since x + (y + 1) = (x + y) + 1 by Lemma 3.1.1.  Second, assume z ∈ A.  Then x + (y + z) = (x + y) + z.  Now,
+We must show that A = ℕ.  First, 1 ∈ A by [equation β'].  Second, assume z ∈ A.  Then x + (y + z) = (x + y) + z.  Now,
 
-  x + (y + S(z)) = x + (S(y + z))   by Axiom 3.1.b
-                        = S(x + (y + z))    by Axiom 3.1.b
+  x + (y + S(z)) = x + (S(y + z))   by [equation β]
+                        = S(x + (y + z))    by [equation β]
                         = S((x + y) + z)    by the inductive hypothesis
-                        = (x + y) + S(z)    by Axiom 3.1.b.
+                        = (x + y) + S(z)    by [equation β].
 
 Thus S(z) ∈ A.  We have shown that z ∈ A implies S(z) ∈ A.  Hence by [induction on ℕ] ℕ = A.
 
@@ -55,10 +55,10 @@ Proof.
 
   a. Let A = { x : ℕ | x + 1 = 1 + x }.  We must show that A = ℕ.  First, 1 ∈ A since 1 + 1 = 1 + 1.  Second, assume x ∈ A.  Then x + 1 = 1 + x.  Hence
 
-    S(x) + 1 = (x + 1) + 1    by Axiom 3.1.a
+    S(x) + 1 = (x + 1) + 1    by [equation α]
                   = (1 + x) + 1    by the inductive hypothesis
                   = 1 + (x + 1)    by Theorem 3.2
-                  = 1 + S(x)         by Axiom 3.1.a.
+                  = 1 + S(x)         by [equation α].
 
   Thus S(x) ∈ A.  We have shown that x ∈ A implies S(x) ∈ A.  By [induction on ℕ] A = ℕ.
 
@@ -80,11 +80,11 @@ Theorem 3.5 (Cancellation Law for Addition).
 
   x + z = y + z implies x = y   for all x, y, z : ℕ.
 
-Proof.  Let x, y : ℕ.  Let A = { z : ℕ | x + z = y + z implies x = y }.  We must prove that A= ℕ.  First, x + 1 = y + 1 implies x = y by Axiom 1.2 and Axiom 3.1.a, so 1 ∈ A.  Second, assume z ∈ A.  Then x + z = y + z implies x = y.  Now assume x + S(z) = y + S(z).  Then by Axiom 3.1.b S(x + z) = S(y + z).  Therefore by Axiom 1.2 x + z = y + z.  Hence by inductive hypothesis x = y.  Thus we have shown that x + S(z) = y + S(z) implies x = y, so S(z) ∈ A.  Therefore z ∈ A implies S(z) ∈ A.  By [induction on ℕ] A = ℕ.
+Proof.  Let x, y : ℕ.  Let A = { z : ℕ | x + z = y + z implies x = y }.  We must prove that A= ℕ.  First, x + 1 = y + 1 implies x = y by Axiom 1.2 and [equation α], so 1 ∈ A.  Second, assume z ∈ A.  Then x + z = y + z implies x = y.  Now assume x + S(z) = y + S(z).  Then by [equation β] S(x + z) = S(y + z).  Therefore by Axiom 1.2 x + z = y + z.  Hence by inductive hypothesis x = y.  Thus we have shown that x + S(z) = y + S(z) implies x = y, so S(z) ∈ A.  Therefore z ∈ A implies S(z) ∈ A.  By [induction on ℕ] A = ℕ.
 
 Theorem 3.6.  y ≠ x + y for all x, y : ℕ.
 
-Proof.  Let x : ℕ.  Let A = { y ∈ ℕ | y ≠ x + y }.  We must prove that A = ℕ.  Clearly 1 ∈ A since 1 ≠ x + 1 by Axiom 3.1.a and Axiom 1.1.  Assume that y ∈ A.  Then y ≠ x + y.  Hence by Axiom 1.2 S(y) ≠ S(x + y).  But S(x + y) = x + S(y) by Axiom 3.1.b.  Hence S(y) ≠ x + S(y), so S(y) ∈ A.  We have shown that y ∈ A implies S(y) ∈ A.  By [induction on ℕ] A = ℕ.
+Proof.  Let x : ℕ.  Let A = { y ∈ ℕ | y ≠ x + y }.  We must prove that A = ℕ.  Clearly 1 ∈ A since 1 ≠ x + 1 by [equation α] and Axiom 1.1.  Assume that y ∈ A.  Then y ≠ x + y.  Hence by Axiom 1.2 S(y) ≠ S(x + y).  But S(x + y) = x + S(y) by [equation β].  Hence S(y) ≠ x + S(y), so S(y) ∈ A.  We have shown that y ∈ A implies S(y) ∈ A.  By [induction on ℕ] A = ℕ.
 
 # 2.4 The order relation
 
@@ -104,7 +104,7 @@ Proof.
 
   c. If x < y and x = y then x < x, contradicting [irreflexivity of < on ℕ].  If x = y and y < x, then x < x, again contradicting [irreflexivity of < on ℕ].  If x < y and y < x then by [transitivity of < on ℕ] we have x < x, contradicting [irreflexivity of < on ℕ].  So at most one of x < y or x = y or y < x holds.
 
-  We will now prove that at least one of x < y or x = y or y < x holds.  Let A = { x : ℕ | x < y or x = y or y < x }.  We must prove that A = ℕ.  First, by Theorem 1.1 we have y = 1 or there exists z : ℕ such that y = S(z).  Hence by Axiom 3.1.a and Lemma 3.3.a y = 1 or there exists z : ℕ such that 1 + z = y.  So y = 1 or 1 < y, so 1 ∈ A.
+  We will now prove that at least one of x < y or x = y or y < x holds.  Let A = { x : ℕ | x < y or x = y or y < x }.  We must prove that A = ℕ.  First, by Theorem 1.1 we have y = 1 or there exists z : ℕ such that y = S(z).  Hence by [equation α] and Lemma 3.3.a y = 1 or there exists z : ℕ such that 1 + z = y.  So y = 1 or 1 < y, so 1 ∈ A.
 
   Second, assume v ∈ A.  Then v < y or v = y or y < v.
 
@@ -218,8 +218,59 @@ First assume that 1 ∉ B.  Then there is some u : ℕ such that u ≤ 1 and u �
 
 Let x ∈ B.  Then
 
-    for all u : ℕ, if u ≤ x then u ∉ A.
+    for all u : ℕ, if u ≤ x then u ∉ A.   [**]
 
-If S(x) ∈ A then by Theorem 4.2.b S(x) is a least element of A, which is a contradiction.  So S(x) ∉ A.  Hence by Theorem 4.2.b for all u : ℕ, if u ≤ S(x) then u ∉ A.  Then S(x) ∈ B.
+If S(x) ∈ A then by [**] and Theorem 4.2.b S(x) is a least element of A, which is a contradiction.  So S(x) ∉ A.  Hence by [**] and Theorem 4.2.b for all u : ℕ, if u ≤ S(x) then u ∉ A.  Then S(x) ∈ B.
 
 We have shown that for all x ∈ B, S(x) ∈ B.  By [induction on ℕ] B = ℕ.  But B ∩ A = ∅.  So A is empty, contradicting our assumption that A is nonempty.
+
+# Multiplication
+
+Axiom 5.1.  There is a binary operation · : ℕ → ℕ → ℕ such that for all x, y ∈ ℕ,
+
+    a. x · 1 = x.                       [equation γ]
+    b. x · S(y) = x · y + x.       [equation δ]
+
+Lemma 5.1.1.  For all x, y : ℕ, x · (y + 1) = (x · y) + x.    [equation δ']
+
+Proof.  By [equation δ] and [equation α].
+
+Theorem 5.2.  Let x, y, z : ℕ.
+
+  a. x · (y + z) = x · y + x · z.
+  b. (y + z) · x = y · x + z · x.
+
+Proof.
+
+  a. Consider any x, y : ℕ.  Let
+
+        B = { z : ℕ | x · (y + z) = x · y + x · z }.
+
+  We must prove that B = ℕ.  First,
+
+      x · (y + 1) = x · y + x         by [equation δ']
+                       = x · y + x · 1    by [equation γ].
+
+   So 1 ∈ B.  Second, let z ∈ B.  Then x · (y + z) = x · y + x · z.  Therefore
+
+    x · (y + S(z)) = x · S(y + z)              by [equation β]
+                         = x · (y + z) + x         by [equation δ]
+                         = (x · y + x · z) + x    by the inductive hypothesis
+                         = x · y + (x · z + x)    by [Associativity of Addition]
+                         = x · y + x · S(z)        by [equation δ].
+
+  Thus S(z) ∈ B.  We have shown that for all z ∈ B, S(z) ∈ B.  Hence by [induction on ℕ] B = ℕ.
+
+  b. Consider any y, z : ℕ.  Let A = { x : ℕ | (y + z) · x = y · x + z · x }.  We must prove that A = ℕ.  First,
+
+      (y + z) · 1 = y + z               by [equation γ]
+                       = y · 1 + z · 1     by [equation γ].
+
+  So 1 ∈ A.  Second, let x ∈ A.  Then (y + z) · x = y · x + z · x.  Hence
+
+    (y + z) · S(x) = ((y + z) · x) + (y + z)     by [equation δ]
+                         = (y · x + z · x) + (y + z)  by the inductive hypothesis
+                         = (y · x + y) + (z · x + z)  by [Associativity of Addition] and [Commutativity of Addition]
+                         = y · S(x) + z · S(x)           by [equation δ].
+
+  Thus S(x) ∈ A.  We have shown that for all x ∈ A, S(x) ∈ A.  By [induction on ℕ] A = ℕ.
