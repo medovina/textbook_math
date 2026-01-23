@@ -323,3 +323,17 @@ So 1 ∈ B.  Let z ∈ B.  Thus x · (y · z) = (x · y) · z.  Hence
                        = (x · y) · S(z)          by [equation δ].
 
 Thus S(z) ∈ B.  We have shown that for all z ∈ B, S(z) ∈ B.  By [induction on ℕ] B = ℕ.
+
+Lemma 5.5.1.  Let x, y, z : ℕ.  If x < y then x · z < y · z.
+
+Proof.  Assume that x < y.  Then y = x + u for some u : ℕ.  Hence we have y · z = (x + u) · z = x · z + u · z by Theorem 5.2.b.  Thus there exists v : ℕ such that y · z = x · z + v.  Hence x · z < y · z.
+
+Theorem 5.6.  Let x, y, z : ℕ.  x < y if and only if x · z < y · z.
+
+Proof.  If x < y then x · z < y · z by Lemma 5.5.1.  Assume that x · z < y · z.  We shall show that x < y by reductio ad absurdum.  Assume x ≮ y.  Then by [trichotomy on ℕ] x = y or y < x.  If x = y then x · z = y · z, contradicting the assumption that x · z < y · z.  If y < x then by Lemma 5.5.1 y · z < x · z, contradicting the assumption that x · z < y · z.  In both cases we have a contradiction.
+
+Corollary 5.7 (Cancellation Law for Multiplication).
+
+    Let x, y, z : ℕ.  If x · z = y · z then x = y.
+
+Proof.  Assume that x · z = y · z.  We shall prove that x = y by reductio ad absurdum.  Assume that x ≠ y.  Then by [trichotomy on ℕ] x < y or y < x.  If x < y then by Theorem 5.6 x · z < y · z, contradicting our assumption that x · z = y · z.  If y < x then by Theorem 5.6 y · z < x · z, contradicting our assumption that x · z = y · z.  In both cases we have a contradiction.
