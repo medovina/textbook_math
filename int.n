@@ -1,0 +1,52 @@
+using nat;
+
+# Integers: definition
+
+Definition.  For all n, j, k, i : ℕ, (n, j) ~ (k, i) if and only if n + i = k + j.
+
+Theorem 31.1.  Let h, i, j, k, m, n : ℕ.
+
+    a. (h, i) ~ (h, i).
+    b. If (h, i) ~ (j, k) then (j, k) ~ (h, i).
+    c. If (h, i) ~ (j, k) and (j, k) ~ (m, n) then (h, i) ~ (m, n).
+
+Proof.
+
+    a. h + i = h + i.
+
+    b. Assume (h, i) ~ (j, k).  Thus h + k = j + i.  Then j + i = h + k, that is (j, k) ~ (h, i).
+
+    c.  Assume (h, i) ~ (j, k) and (j, k) ~ (m, n).  Thus
+
+        h + k = j + i       and     j + n = m + k.
+
+    So we obtain
+
+        h + k + j + n = j + i + m + k.
+
+    Hence by [Associativity of Addition] and [Commutativity of Addition] and [Cancellation Law for Addition] h + n = m + i.  Thus (h, i) ~ (m, n).
+
+Axiom 31.2.  There exists a type ℤ (the integers) with a function z : ℕ ⨯ ℕ → ℤ such that
+
+  a. For all n, j, k, i ∈ ℕ, z(n, j) = z(k, i) if and only if (n, j) ~ (k, i).  [equality on ℤ]
+  b. For all x : ℤ, there exist some n, j : ℕ such that x = z(n, j).
+
+Definition.  Let 0 : ℤ = z(1, 1).  Let 1 : ℤ = z(2, 1).
+
+Lemma 31.3. 0 : ℤ ≠ 1.
+
+Proof.  z(1, 1) = 0.  z(1, 1) ≠ 1.
+
+# 3.2 Addition and multiplication
+
+Lemma 32.1.  Let n, j, k, i, n', j', k', i' : ℕ.  Suppose that  (n, j) ~ (n', j') and (k, i) ~ (k', i').  Then
+
+    (n + k, j + i) ~ (n' + k', j' + i').
+
+Proof.  We know that n + j' = n' + j and k + i' = k' + i.  So we obtain (n + j') + (k + i') = (n' + j) + (k' + i).  By [Associativity of Addition] and [Commutativity of Addition],
+
+    (n + k) + (j' + i') = (n' + k') + (j + i),
+
+that is
+
+        (n + k, j + i) ~ (n' + k', j' + i').

@@ -29,6 +29,8 @@ Lemma 3.1.1.  Let x, y : ℕ.  x + (y + 1) = (x + y) + 1.  [equation β']
 
 Proof.  By [equation β] and [equation α].
 
+Definition.  2 = S(1).
+
 Theorem 3.2 (Associativity of Addition).
 
   x + (y + z) = (x + y) + z    for all x, y, z : ℕ.
