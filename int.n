@@ -85,3 +85,45 @@ Proof.
 
         u = u + 0 = u + (a + d) = (u + a) + d
            = (a + u) + d = 0 + d = d + 0 = d.
+
+Lemma 32.3.  Let n, j, k, i, n', j', k', i' : ℕ.  If (n, j) ~ (n', j') and (k, i) ~ (k', i') then
+
+    (n · k + j · i, j · k + n · i) ~ (n' · k' + j' · i', j' · k' + n' · i').
+
+Proof.  Assume (n, j) ~ (n', j') and (k, i) ~ (k', i').  Thus,
+
+    n + j' = n' + j.    [i]
+    k + i' = i + k'.    [ii]
+
+Let A = n · k + j · i + j' · k' + n' · i'.  Let B = n' · k' + j' · i' + j · k + n · i.  We must prove that A = B.
+
+We have
+
+    n · k + j' · k = n' · k + j · k        by [i].     [iii]
+    j' · k' + j' · i = j' · k + j' · i'         by [ii].    [iv]
+    i · j + i · n' = i · n + i · j'            by [i].     [v]
+    n' · k + n' · i' = n' · i + n' · k'    by [ii].    [vi]
+
+Let C = j' · k + j' · i + i · n' + n' · k.  We obtain
+
+    A + C = B + C                 by [iii] and [iv] and [v] and [vi].
+
+Hence by [Cancellation Law for Addition] A = B.
+
+Axiom 32.3.1.  There is a binary operation · : ℤ → ℤ → ℤ such that for all n, j, k, i : ℕ,
+
+    z(n, j) · z(k, i) = z(n · k + j · i, j · k + n · i).
+
+Theorem 32.4 (Properties of Multiplication).  Let a, b, c : ℤ.
+
+    a. a · b = b · a.
+
+Proof.
+
+    a. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i).
+
+        a · b = z(n · k + j · i, j · k + n · i).
+
+        b · a = z(k · n + i · j, i · n + k · j).
+
+    The result follows by [Commutativity of Addition] and [Commutativity of Multiplication].
