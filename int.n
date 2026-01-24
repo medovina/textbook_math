@@ -55,11 +55,17 @@ Axiom 32.1.1.  There is a binary operation + : ℤ → ℤ → ℤ such that for
 
     z(n, j) + z(k, i) = z(n + k, j + i).
 
+Axiom 32.2.2.  There is a unary operation − : ℤ → ℤ such that for all a, b ∈ ℕ,
+
+  −z(a, b) = z(b, a).
+
 Theorem 32.2 (Properties of Addition).  Let a, b, c : ℤ.
 
     a. a + b = b + a.
     b. a + (b + c) = (a + b) + c.
     c. a + 0 = a.
+    d. a + (−a) = 0.
+    e. If a + b = 0, then b = −a.
 
 Proof.
 
@@ -72,4 +78,10 @@ Proof.
     b. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).  Then b + c = z(k + m, i + h).  Hence a + (b + c) = z(n + (k + m), j + (i + h)).  Similarly, a + b = z(n + k, j + i), so (a + b) + c = z((n + k) + m, (j + i) + h).  Therefore a + (b + c) = (a + b) + c by [Associativity of Addition].
 
     c. There are some n, j ∈ ℕ such that a = z(n, j).  Remember that z(1, 1) = 0.  Then a + 0 = z(n + 1, j + 1).  However (n + 1, j + 1) ~ (n, j) since (n + 1) + j = n + (j + 1).  Hence z(n + 1, j + 1) = z(n, j).  But z(n, j) = a.  Therefore a + 0 = a.
+
+    d. There are some n, j ∈ ℕ such that a = z(n, j).  Let d = −a.  So d = z(j, n).  Then a + (−a) = a + d = z(n + j, j + n) = z(n + j, n + j) = 0.
     
+    e. Let d = −a.  Let u : ℤ.  Assume that a + u = 0.  We must show that u = d.  But
+
+        u = u + 0 = u + (a + d) = (u + a) + d
+           = (a + u) + d = 0 + d = d + 0 = d.
