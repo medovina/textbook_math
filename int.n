@@ -50,3 +50,26 @@ Proof.  We know that n + j' = n' + j and k + i' = k' + i.  So we obtain (n + j')
 that is
 
         (n + k, j + i) ~ (n' + k', j' + i').
+
+Axiom 32.1.1.  There is a binary operation + : ℤ → ℤ → ℤ such that for all n, j, k, i : ℕ,
+
+    z(n, j) + z(k, i) = z(n + k, j + i).
+
+Theorem 32.2 (Properties of Addition).  Let a, b, c : ℤ.
+
+    a. a + b = b + a.
+    b. a + (b + c) = (a + b) + c.
+    c. a + 0 = a.
+
+Proof.
+
+    a. There are some n, j, k, i : ℕ such that a = z(n, j) and b = z(k, i).  By definition
+
+        a + b = z(n + k, j + i)     and     b + a = z(k + n, i + j).
+
+    Hence a + b = b + a by [Commutativity of Addition].
+
+    b. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).  Then b + c = z(k + m, i + h).  Hence a + (b + c) = z(n + (k + m), j + (i + h)).  Similarly, a + b = z(n + k, j + i), so (a + b) + c = z((n + k) + m, (j + i) + h).  Therefore a + (b + c) = (a + b) + c by [Associativity of Addition].
+
+    c. There are some n, j ∈ ℕ such that a = z(n, j).  Remember that z(1, 1) = 0.  Then a + 0 = z(n + 1, j + 1).  However (n + 1, j + 1) ~ (n, j) since (n + 1) + j = n + (j + 1).  Hence z(n + 1, j + 1) = z(n, j).  But z(n, j) = a.  Therefore a + 0 = a.
+    
