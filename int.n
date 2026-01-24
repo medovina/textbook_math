@@ -118,10 +118,13 @@ Theorem 32.4 (Properties of Multiplication).  Let a, b, c : ℤ.
 
     a. a · b = b · a.
     b. a · (b · c) = (a · b) · c.
+    c. a · (b + c) = a · b + a · c.
+    d. a · 1 = a.
+    e. If a ≠ 0 and b ≠ 0 then a · b ≠ 0.
 
 Proof.
 
-    a. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i).
+    a. There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).
 
         a · b = z(n · k + j · i, j · k + n · i).
 
@@ -150,3 +153,42 @@ Proof.
                                     by [right distributive law on ℕ].
 
     The result follows by [Associativity of Multiplication] and [Commutativity of Addition].
+
+    c. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).
+
+        a · (b + c) = z(n, j) · z(k + m, i + h)
+                         = z(n · (k + m) + j · (i + h), j · (k + m) + n · (i + h))
+                         = z(n · k + n · m + j · i + j · h,
+                               j · k + j · m + n · i + n · h) by [left distributive law on ℕ]
+                         = z(n · k + j · i, j · k + n · i) + z(n · m + j · h, j · m + n · h)
+                         = a · b + a · c.
+
+    d. There are some n, j ∈ ℕ such that a = z(n, j).
+
+    First, 2 · i = i + i for all i : ℕ.  So (2 · n + j) + j = n + (2 · j + n), which means that
+    
+            (2 · n + j, 2 · j + n) ~ (n, j).    [**]
+
+    Now
+
+        a · 1 = z(n, j) · z(2, 1)
+                = z(n · 2 + j · 1, j · 2 + n · 1)
+                = z(2 · n + j, 2 · j + n)
+                = z(n, j) by [**]
+                = a.
+
+    e. Assume a ≠ 0 and b ≠ 0.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  It follows that n ≠ j and k ≠ i.  Since k ≠ i, k < i or i < k by [trichotomy on ℕ].
+
+    Suppose that i < k.  Then k = i + u for some u : ℕ.  Since n ≠ j, it follows by Corollary 5.7 that n · u ≠ j · u.  Hence n · k + j · i = n · (i + u) + j · i = n · i + n · u + j · i ≠ n · i + j · u + j · i by [Cancellation Law for Addition] and the fact that n · u ≠ j · u.  But
+
+        n · i + j · u + j · i = j · (i + u) + n · i = j · k + n · i.
+
+    Thus n · k + j · i ≠ j · k + n · i.  Remember that
+
+        for all v, w : ℕ, z(v, w) = 0 if and only if v = w.  [**]
+    
+    And so
+
+        a · b = z(n · k + j · i, j · k + n · i) ≠ 0 by [**].
+
+    Now suppose that k < i.  Then a · b ≠ 0 by an exercise for the reader.
