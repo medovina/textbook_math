@@ -102,7 +102,7 @@ Proof.
 
   b. Let x, y, z : ℕ.  Assume x < y and y < z.  Then x + u = y and y + v = z for some u, v : ℕ.  Then x + (u + v) = (x + u) + v = y + v = z.  Thus there exists w : ℕ such that x + w = z, so x < z.
 
-  c. If x < y and x = y then x < x, contradicting [irreflexivity of < on ℕ].  If x = y and y < x, then x < x, again contradicting [irreflexivity of < on ℕ].  If x < y and y < x then by [transitivity of < on ℕ] we have x < x, contradicting [irreflexivity of < on ℕ].  So at most one of x < y or x = y or y < x holds.
+  c. If x < y and x = y then x < x, contradicting (a).  If x = y and y < x, then x < x, again contradicting (a).  If x < y and y < x then by (b) we have x < x, contradicting (a).  So at most one of x < y or x = y or y < x holds.
 
   We will now prove that at least one of x < y or x = y or y < x holds.  Let A = { x : ℕ | x < y or x = y or y < x }.  We must prove that A = ℕ.  First, by Theorem 1.1 we have y = 1 or there exists z : ℕ such that y = S(z).  Hence by [equation α] and Lemma 3.3.a y = 1 or there exists z : ℕ such that 1 + z = y.  So y = 1 or 1 < y, so 1 ∈ A.
 
@@ -148,7 +148,7 @@ Proof.
 
   c. Left to the reader.
 
-  d. Follows from Theorem 4.3.b and Theorem 4.3.c and the transitivity of equality.
+  d. Follows from (b) and (c) and the transitivity of equality.
 
   e. Follows from Theorem 4.1.c.
 
@@ -178,15 +178,13 @@ Proof.
 
   c. If x < y then x + z < y + z by Lemma 4.3.1.  Assume x + z < y + z.  We shall prove that x < y by reductio ad absurdum.  Assume that x ≮ y.  By Theorem 4.1.c, x = y or y < x.  But if x = y then x + z = y + z, contradicting x + z < y + z.  Likewise, if y < x then by Lemma 4.3.1 y + z < x + z, contradicting x + z < y + z.
 
-  d. Follows easily from Theorem 4.4.c and Theorem 3.5.
+  d. Follows easily from (c) and Theorem 3.5.
 
   e. Assume x < y and u < v.  By Theorem 4.4.c, x + u < y + u and y + u < y + v.  Hence by Theorem 4.1.b x + u < y + v.
 
-  f. Follows easily from Theorem 4.4.e.
-
-  g. Follows easily from Theorem 4.4.e.
-
-  h. Follows easily from Theorem 4.4.e.
+  f. Follows easily from (e).
+  g. Follows easily from (e).
+  h. Follows easily from (e).
 
 # Set-related definitions, for the moment only on Set(ℕ)
 
@@ -337,3 +335,23 @@ Corollary 5.7 (Cancellation Law for Multiplication).
     Let x, y, z : ℕ.  If x · z = y · z then x = y.
 
 Proof.  Assume that x · z = y · z.  We shall prove that x = y by reductio ad absurdum.  Assume that x ≠ y.  Then by [trichotomy on ℕ] x < y or y < x.  If x < y then by Theorem 5.6 x · z < y · z, contradicting our assumption that x · z = y · z.  If y < x then by Theorem 5.6 y · z < x · z, contradicting our assumption that x · z = y · z.  In both cases we have a contradiction.
+
+Corollary 5.8.  Let x, y, z, u, v : ℕ.
+
+  a. x ≤ y if and only if x · z ≤ y · z.
+  b. z ≤ y · z.
+  c. 1 < y if and only if z < y · z.
+  d. If x < u and y < v then x · y < u · v.
+  e. If x < u and y ≤ v then x · y < u · v.
+  f. If x ≤ u and y < v then x · y < u · v.
+  g. If x ≤ u and y ≤ v then x · y ≤ u · v.
+
+Proof.
+
+  a. Follows immediately from Theorem 5.6 and Corollary 5.7.
+  b. Follows from (a).
+  c. Follows from Theorem 5.6.
+  d. Assume x < u and y < v.  By Theorem 5.6 we may write x · y < u · y and u · y < u · v.  By [transitivity of < on ℕ] x · y < u · v.
+  e. Follows from (d).
+  f. Follows from (d).
+  g. Follows from (d).
