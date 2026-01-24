@@ -117,6 +117,7 @@ Axiom 32.3.1.  There is a binary operation · : ℤ → ℤ → ℤ such that fo
 Theorem 32.4 (Properties of Multiplication).  Let a, b, c : ℤ.
 
     a. a · b = b · a.
+    b. a · (b · c) = (a · b) · c.
 
 Proof.
 
@@ -127,3 +128,25 @@ Proof.
         b · a = z(k · n + i · j, i · n + k · j).
 
     The result follows by [Commutativity of Addition] and [Commutativity of Multiplication].
+
+    b. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).
+
+            b · c = z(k · m + i · h, i · m + k · h).
+
+    Hence
+
+        a · (b · c) = z((n · (k · m + i · h)) + (j · (i · m + k · h)),
+                                (j · (k · m + i · h) + (n · (i · m + k · h))))
+                       = z(n · (k · m) + n · (i · h) + j · (i · m) + j · (k · h),
+                                j · (k · m) + j · (i · h) + n · (i · m) + n · (k · h))
+                                    by [left distributive law on ℕ].
+
+    On the other hand, a · b = z(n · k + j · i, j · k + n · i).  Hence
+
+        (a · b) · c = z((n · k + j · i) · m + (j · k + n · i) · h,
+                              (j · k + n · i) · m + (n · k + j · i) · h)
+                       = z((n · k) · m + (j · i) · m + (j · k) · h + (n · i) · h,
+                              (j · k) · m + (n · i) · m + (n · k) · h + (j · i) · h)
+                                    by [right distributive law on ℕ].
+
+    The result follows by [Associativity of Multiplication] and [Commutativity of Addition].

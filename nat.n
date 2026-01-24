@@ -235,10 +235,10 @@ Lemma 5.1.1.  For all x, y : ℕ, x · (y + 1) = (x · y) + x.    [equation δ']
 
 Proof.  By [equation δ] and [equation α].
 
-Theorem 5.2.  Let x, y, z : ℕ.
+Theorem 5.2 (Distributive Laws).  Let x, y, z : ℕ.
 
-  a. x · (y + z) = x · y + x · z.
-  b. (y + z) · x = y · x + z · x.
+  a. x · (y + z) = x · y + x · z.   [left distributive law on ℕ]
+  b. (y + z) · x = y · x + z · x.   [right distributive law on ℕ]
 
 Proof.
 
