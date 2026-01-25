@@ -288,3 +288,7 @@ Proof.
     Also,
                 (−1) · (−1) = (1 : ℤ) · 1     by Theorem 33.1.i
                                   = 1.
+
+Theorem 33.3.  Let x, y, z : ℤ.  If x · y = x · z and x ≠ 0 then y = z.
+
+Proof.  Assume x · y = x · z and x ≠ 0.  Then x · y − x · z = 0 by Theorem 33.2.c.  Hence x · (y − z) = 0 by Theorem 33.2.d.  Since x ≠ 0, it follows by Theorem 32.4.e that y − z = 0.  Then y = z by Theorem 33.2.c.
