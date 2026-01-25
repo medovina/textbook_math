@@ -33,9 +33,21 @@ Axiom 31.2.  There exists a type ℤ (the integers) with a function z : ℕ ⨯ 
 
 Definition.  Let 0 : ℤ = z(1, 1).  Let 1 : ℤ = z(2, 1).
 
-Lemma 31.3. 0 : ℤ ≠ 1.
+Lemma 31.3.  Let n, j : ℕ.
 
-Proof.  z(1, 1) = 0.  z(1, 1) ≠ 1.
+    a. z(n, j) = 0 if and only if n = j.
+    b. z(n, j) = 1 if and only if n = j + 1.
+    c. 0 : ℤ ≠ 1.
+
+Proof.
+
+    a. (n, j) ~ (1, 1) iff n + 1 = 1 + j.  By [Cancellation Law for Addition],
+
+        n + 1 = 1 + j iff n = j.
+
+    b. (n, j) ~ (2, 1) iff n + 1 = 2 + j.  But 2 + j = 1 + 1 + j.  Hence by [Cancellation Law for Addition] n + 1 = 2 + j iff n = j + 1.
+
+    c. z(1, 1) = 0.  z(1, 1) ≠ 1.
 
 # 3.2 Addition and multiplication
 
@@ -191,4 +203,50 @@ Proof.
 
         a · b = z(n · k + j · i, j · k + n · i) ≠ 0 by [**].
 
-    Now suppose that k < i.  Then a · b ≠ 0 by an exercise for the reader.
+    Now suppose that k < i.  Then a · b ≠ 0 as an exercise for the reader.
+
+# 3.3 Rings and integral domains
+
+Theorem 33.1 (Properties of Rings).  Let x, y, z : ℤ.
+
+    a. If x + y = x + z then y = z.
+    b. −0 = 0.
+    c. −(−x) = x.
+    d. If −x = −y then x = y.
+    e. −(x + y) = −x + −y.
+    f. If x + y = x then y = 0.
+    g. x · 0 = 0 = 0 · x.
+    h. −(x · y) = (−x) · y = x · (−y).
+    i. (−x) · (−y) = x · y.
+
+Proof.
+
+    a. Assume x + y = x + z.  We obtain (−x) + x + y = (−x) + x + z.  Hence 0 + y = 0 + z.  Therefore y = z.
+
+    b. 0 + 0 = 0 by Theorem 32.2.c.  It follows by Theorem 32.2.e that −0 = 0.
+
+    c. (−x) + x = x + (−x) = 0.  It follows by Theorem 32.2.e that −(−x) = x.
+
+    d. Assume that −x = −y.  Then −(−x) = −(−y).  The result follows by (c).
+
+    e. Observe that
+
+        (x + y) + (−x + −y) = (x + −x) + (y + −y) = 0 + 0 = 0.
+
+    It follows by Theorem 32.2.e that −(x + y) = −x + −y.
+
+    f. Follows from (a).
+
+    g. x · 0 = x · (0 + 0) = x · 0 + x · 0.  Then by (f) x · 0 = 0.  Similarly,
+
+        0 · x = (0 + 0) · x = 0 · x + 0 · x.  Then by (f) 0 · x = 0.
+
+    h. x · y + ((−x) · y) = (x + (−x)) · y = 0 · y = 0.  It follows by Theorem 32.2.e that −(x · y) = (−x) · y.  Similarly,
+
+            x · y + (x · (−y)) = x · (y + (−y)) = x · 0 = 0.
+
+    Hence x · (−y) = −(x · y).
+
+    i.  (−x) · (−y) = −(x · (−y))   by (h)
+                          = −(−(x · y))   by (h)
+                          = x · y             by (c).
