@@ -292,3 +292,57 @@ Proof.
 Theorem 33.3.  Let x, y, z : ℤ.  If x · y = x · z and x ≠ 0 then y = z.
 
 Proof.  Assume x · y = x · z and x ≠ 0.  Then x · y − x · z = 0 by Theorem 33.2.c.  Hence x · (y − z) = 0 by Theorem 33.2.d.  Since x ≠ 0, it follows by Theorem 32.4.e that y − z = 0.  Then y = z by Theorem 33.2.c.
+
+# 3.4 Ordered integral domains
+
+Lemma 34.4.  Let a : ℤ.  Let n, j, k, i : ℕ.  Suppose that z(n, j) = a and z(k, i) = a.  Then
+
+        j < n if and only if i < k.
+
+Proof.  Since z(n, j) = a and z(k, i) = a, we have (n, j) ~ (k, i), that is
+
+        n + i = k + j.      [*]
+
+Assume that j < n.  We must prove that i < k.  Assume that i ≮ k.  By Theorem 4.1.c, k ≤ i.  Since j < n and k ≤ i, by Theorem 4.4.f we have k + j < n + i.  This contradicts [*].  We have shown that j < n implies i < k.  By a similar argument i < k implies j < n.
+
+Definition.  𝒫 = { a : ℤ | for all n, j : ℕ, z(n, j) = a implies j < n }.
+
+Lemma 34.4.1.  For all a : ℤ, a ∈ 𝒫 if and only if j < n for some n, j : ℕ with z(n, j) = a.
+
+Proof.  By Lemma 34.4.
+
+Lemma 34.5.  Let a, b : ℤ.
+
+    a. 0 ∉ 𝒫.
+    b. a ∈ 𝒫  or a = 0 or −a ∈ 𝒫.
+    c. If a ∈ 𝒫 and b ∈ 𝒫 then a + b ∈ 𝒫.
+    d. If a ∈ 𝒫 and b ∈ 𝒫 then a · b ∈ 𝒫.
+
+Proof.
+
+    a. z(1, 1) = 0 and 1 ≮ 1.  Hence 0 ∉ 𝒫.
+
+    b. Let a : ℤ.  There are some n, j ∈ ℕ such that a = z(n, j).  By Theorem 4.1.c,
+
+            j < n       or      j = n       or      n < j.
+
+    If j < n then a ∈ 𝒫.
+    If j = n then a = 0.
+    If n < j then −a ∈ 𝒫  since z(j, n) = −a.
+    Hence a ∈ 𝒫 or a = 0 or −a ∈ 𝒫.
+
+    c. Assume a ∈ 𝒫 and b ∈ 𝒫.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  Then j < n and i < k.  Now a + b = z(n + k, j + i).  Since j < n and i < k, it follows by Theorem 4.4.e that j + i < n + k.  Hence a + b ∈ 𝒫.
+
+    d. Assume a ∈ 𝒫 and b ∈ 𝒫.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  Then j < n and i < k.
+
+    By definition a · b = z(n · k + j · i, n · i + j · k).  We must show that
+
+        n · i + j · k < n · k + j · i.
+
+    Since i < k, by definition k = i + u for some u : ℕ.  Since j < n, we obtain j · u < n · u by Theorem 5.6.  Hence
+
+    n · i + j · k = n · i + j · (i + u) = n · i + j · i + j · u
+                     < n · i + j · i + n · u = n · i + n · u + j · i
+                     = n · (i + u) + j · i = n · k + j · i.
+
+Definition.  For all a, b ∈ ℤ, a < b if and only if b − a ∈ 𝒫.
