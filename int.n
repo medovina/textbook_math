@@ -347,13 +347,15 @@ Proof.
 
 Definition.  For all a, b ∈ ℤ, a < b if and only if b − a ∈ 𝒫.
 
+# ℤ satisfies the axioms of an ordered integral domain.
+
 Theorem 34.3.  Let x, y, z : ℤ.
 
-    a. x ≮ x.
-    b. If x < y and y < z then x < z.
-    c. x < y or x = y or y < x.
-    d. If x < y then x + z < y + z.
-    e. If x < y and 0 < z then x · z < y · z.
+    a. x ≮ x.   [Axiom O1]
+    b. If x < y and y < z then x < z.   [Axiom O2]
+    c. x < y or x = y or y < x.     [Axiom O3]
+    d. If x < y then x + z < y + z.     [Axiom O4]
+    e. If x < y and 0 < z then x · z < y · z.   [Axiom O5]
     f. 0 < x if and only if x ∈ 𝒫.
 
 Proof.
@@ -367,3 +369,28 @@ Proof.
     d. Assume x < y.  Then y − x ∈ 𝒫.  But (y + z) − (x + z) = y − x.  Hence x + z < y + z.
 
     e. Assume x < y and 0 < z.  Then y − x ∈ 𝒫 and z − 0 ∈ 𝒫.  Hence z ∈ 𝒫 since z − 0 = z.  By Lemma 34.5.d, (y − x) · z ∈ 𝒫.  But (y − x) · z = y · z − x · z by Theorem 33.2.d.  Hence y · z − x · z ∈ 𝒫, that is, x · z < y · z.
+
+Definition.  For all x, y ∈ ℤ, x ≤ y iff x < y or x = y.
+
+Definition.  For all x, y ∈ ℤ, we write x > y iff y < x.  We write x ≥ y iff y ≤ x.
+
+Theorem 34.1.  Let x, y, z, u, v : ℤ.
+
+    a. Exactly one of the conditions x < y or x = y or y < x holds.
+    b. If x < y and u < v then x + u < y + v.
+    c. If x < y and u ≤ v then x + u < y + v.
+    d. If x ≤ y and u < v then x + u < y + v.
+    e. If x ≤ y and u ≤ v then x + u ≤ y + v.
+    f. If 0 < z and x · z < y · z then x < y.
+
+Proof.
+
+    a. By [Axiom O3] we have x < y or x = y or y < x.  If x < y and x = y then x < x, contradicting [Axiom O1].  If x = y and y < x then x < x, contradicting [Axiom O1].  If x < y and y < x then by [Axiom O2] x < x, again contradicting [Axiom O1].
+
+    b. Assume x < y and u < v.  From x < y we obtain x + u < y + u by [Axiom O4].  From u < v we obtain y + u < y + v by [Axiom O4].  Hence by [Axiom O2] x + u < y + v.
+
+    c. Follows easily from (b).
+    d. Follows easily from (b).
+    e. Follows easily from (b).
+
+    f. Assume 0 < z and x · z < y · z.  Assume x ≮ y.  Then y < x or y = x.  Hence either y · z < x · z or y · z = x · z, contradicting x · z < y · z.
