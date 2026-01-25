@@ -394,3 +394,42 @@ Proof.
     e. Follows easily from (b).
 
     f. Assume 0 < z and x · z < y · z.  Assume x ≮ y.  Then y < x or y = x.  Hence either y · z < x · z or y · z = x · z, contradicting x · z < y · z.
+
+Definition.  For all x : ℤ, x is positive iff 0 < x.  x is negative iff x < 0.
+
+Theorem 34.2.  Let x, y, z : ℤ.
+
+    a. x < y if and only if y − x is positive.
+    b. x < y if and only if x − y is negative.
+    c. y is positive if and only if −y is negative.
+    d. x is negative if and only if −x is positive.
+    e. x < y if and only if −y < −x.
+    f. If x < y and z < 0 then y · z < x · z.
+    g. If x is positive and y is positive then x + y is positive.
+    h. If x is negative and y is negative then x · y is positive.
+    i. If x is positive and y is negative then x · y is negative.
+
+Proof.
+
+    a. Assume x < y.  By [Axiom O4] we obtain x + (−x) < y + (−x), therefore 0 < y − x.  Conversely, assume 0 < y − x.  By [Axiom O4] we obtain x + 0 < x + (y − x), and therefore x < y.
+
+    b. Assume x < y.  By [Axiom O4] we obtain x + (−y) < y + (−y), therefore x − y < 0.  Conversely, assume x − y < 0.  By [Axiom O4] we obtain y + (x − y) < y, and therefore x < y.
+
+    c. Follows from (b).
+
+    d. Follows from (a).
+
+    e. By (a) x < y iff 0 < y − x.  Also by (a)
+
+        −y < −x iff 0 < (−x) − (−y).
+
+    But (−x) − (−y) = (−x) + (−(−y)) = (−x) + y = y − x.
+
+    f. Assume x < y and z < 0.  By (d), 0 < −z.  Hence by [Axiom O5] x · (−z) < y · (−z).  But x · (−z) = −(x · z) and y · (−z) = −(y · z) by Theorem 33.1.h.  Hence −(x · z) < −(y · z).  Therefore by (e)
+                        y · z < x · z.
+    
+    g. Assume 0 < x and 0 < y.  By Theorem 34.1.b, 0 < x + y.  Also by [Axiom O5] 0 · y < x · y.  But 0 · y = 0.
+
+    h. If x < 0 and y < 0 then by (d) 0 < −x and 0 < −y.  Hence 0 < (−x) · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 33.1.i.
+
+    i. Assume 0 < x and y < 0.  Then 0 < −y by (d).  Hence 0 < x · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 33.1.h.  Hence 0 < −(x · y).  Then x · y < 0 by (d).
