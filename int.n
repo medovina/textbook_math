@@ -346,3 +346,24 @@ Proof.
                      = n · (i + u) + j · i = n · k + j · i.
 
 Definition.  For all a, b ∈ ℤ, a < b if and only if b − a ∈ 𝒫.
+
+Theorem 34.3.  Let x, y, z : ℤ.
+
+    a. x ≮ x.
+    b. If x < y and y < z then x < z.
+    c. x < y or x = y or y < x.
+    d. If x < y then x + z < y + z.
+    e. If x < y and 0 < z then x · z < y · z.
+    f. 0 < x if and only if x ∈ 𝒫.
+
+Proof.
+
+    a. Assume x < x.  Then by definition x − x ∈ 𝒫.  But x − x = 0, contradicting Lemma 34.5.a.  Hence x ≮ x.
+
+    b. Assume x < y and y < z.  Then y − x ∈ 𝒫 and z − y ∈ 𝒫.  Hence by Lemma 34.5.c (y − x) + (z − y) ∈ 𝒫.  But (y − x) + (z − y) = z − x.  Thus z − x ∈ 𝒫, that is, x < z.
+
+    c. By Lemma 34.5.b, y − x ∈ 𝒫 or y − x = 0 or −(y − x) ∈ 𝒫.  If y − x ∈ 𝒫  then x < y.  If y − x = 0 then x = y.  If −(y − x) ∈ 𝒫 then −(y − x) = x − y, so x − y ∈ 𝒫, that is, y < x.  Thus x < y or x = y or y < x.
+
+    d. Assume x < y.  Then y − x ∈ 𝒫.  But (y + z) − (x + z) = y − x.  Hence x + z < y + z.
+
+    e. Assume x < y and 0 < z.  Then y − x ∈ 𝒫 and z − 0 ∈ 𝒫.  Hence z ∈ 𝒫 since z − 0 = z.  By Lemma 34.5.d, (y − x) · z ∈ 𝒫.  But (y − x) · z = y · z − x · z by Theorem 33.2.d.  Hence y · z − x · z ∈ 𝒫, that is, x · z < y · z.
