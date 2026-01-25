@@ -250,3 +250,41 @@ Proof.
     i.  (−x) · (−y) = −(x · (−y))   by (h)
                           = −(−(x · y))   by (h)
                           = x · y             by (c).
+
+Definition.  For all x, y : ℤ, x − y = x + (−y).
+
+Theorem 33.2 (Properties of Subtraction).  Let x, y, z : ℤ.
+
+    a. x − x = 0.
+    b. −(x − y) = y − x.
+    c. x − y = 0 if and only if x = y.
+    d. x · (y − z) = x · y − x · z and
+        (y − z) · x = y · x − z · x.
+    e. (−1) · x = −x = x · (−1)   and   (−1) · (−1) = 1.
+
+Proof.
+
+    a. x − x = x + (−x) = 0.
+
+    b. −(x − y) = −(x + (−y))
+                      = (−x) + −(−y)   by Theorem 33.1.e
+                      = (−x) + y           by Theorem 33.1.c
+                      = y + (−x)
+                      = y − x.
+
+    c. If x = y then x − y = 0 by (a).  Conversely, assume x − y = 0.  Then x + (−y) = 0.  Hence −y = −x by Theorem 32.2.e.  Then x = y by Theorem 33.1.d.
+
+    d. x · (y − z) = x · (y + (−z)) = x · y + x · (−z)
+                         = x · y + −(x · z) = x · y − x · z.
+
+    Similarly,
+
+        (y − z) · x = (y + (−z)) · x = y · x + ((−z) · x)
+                         = y · x + (−(z · x)) = y · x − z · x.
+
+    e. (−1) · x = −(1 · x) = −x.
+        x · (−1) = −(x · 1) = −x.
+
+    Also,
+                (−1) · (−1) = (1 : ℤ) · 1     by Theorem 33.1.i
+                                  = 1.
