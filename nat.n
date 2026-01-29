@@ -148,7 +148,7 @@ Proof.
 
   b. Assume that x < y and y ≤ z.  Since y ≤ z we have y = z or y < z.  If y = z then x < z.  If y = z then x < z by substitutivity of equality.  If y < z then x < z by Theorem 4.1.b.
 
-  c. Left to the reader.
+  c. Similar to (b).
 
   d. Follows from (b) and (c) and the transitivity of equality.
 

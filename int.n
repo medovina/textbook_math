@@ -479,3 +479,66 @@ Proof.
     Hence n + 1 ∈ B.  We have shown that for all n ∈ B, n + 1 ∈ B.  Hence by [induction on ℕ] B = ℕ.  Thus for every n : ℕ, z(n + 1, 1) ∈ A.
 
     It suffices then to show that for every a ∈ 𝒫, a = z(n + 1, 1) for some n : ℕ.  To see this, let a ∈ 𝒫 .  There are some k, i : ℕ such that a = z(k, i).  Since a ∈ 𝒫, k > i.  Hence k = i + j for some j : ℕ.  Thus (k, i) ~ (j + 1, 1) since k + 1 = j + 1 + i.  Therefore a = z(k, i) = z(j + 1, 1) for some j : ℕ.
+
+Axiom.  There is a function abs : ℤ → ℤ such that for all x : ℤ,
+
+    a. If 0 ≤ x then |x| = x.
+    b. If x < 0 then |x| = −x.
+
+Theorem 34.8.  Let x, y, z, u, v : ℤ.
+
+    a. 0 ≤ |x|.
+    b. |x| = 0 if and only if x = 0.
+    c. |−x| = |x|.
+    d. |x − y| = |y − x|.
+    e. |x · y| = |x| · |y|.
+    f. −|x| ≤ x ≤ |x|.
+    g. |z| < u if and only if −u < z < u.
+    h. |z| ≤ u if and only if −u ≤ z ≤ u.
+    i. If u ≥ v and u ≥ −v then u ≥ |v|.
+    j. |x + y| ≤ |x| + |y|.     [triangle inequality]
+    k. |x − y| ≥ ||x| − |y||.
+
+Proof.
+
+    a. If 0 ≤ x then |x| = x ≥ 0.  If x < 0 then |x| = −x > 0 by Theorem 34.2.d.
+
+    b. If x = 0 then |x| = x = 0.  If x ≠ 0 then 0 < x or x < 0.  If 0 < x then |x| = x > 0.  If x < 0 then |x| = −x > 0.
+
+    c. If 0 < x then −x < 0, so |x| = x and |−x| = −(−x) = x.  If 0 = x, then −x = 0 = x.  If x < 0, then −x > 0, so |x| = −x and |−x| = −x.
+
+    d. x − y = −(y − x).  The result follows by (c).
+
+    e. Suppose that x = 0 or y = 0.  Then x · y = 0.  Therefore |x · y| = 0.  Also, |x| = 0 or |y| = 0.  Hence |x| · |y| = 0.
+
+    Now suppose that 0 < x and 0 < y.  Then 0 < x · y, and |x · y| = x · y.  Also, |x| = x and |y| = y.
+
+    Now suppose that x < 0 and y < 0.  Then 0 < x · y.  Hence |x · y| = x · y and |x| = −x and |y| = −y.  But (−x) · (−y) = x · y.
+
+    Now suppose that x < 0 and y > 0.  Then x · y < 0.  Hence |x · y| = −(x · y) and |x| = −x and |y| = y.  But (−x) · y = −(x · y).
+
+    Now suppose that 0 < x and y < 0.  Then |x · y| = |x| · |y| by a similar argument.
+
+    f. Suppose that 0 < x.  Then |x| = x.  Hence −|x| < 0.  Thus −|x| < x and x = |x|.
+
+    Now suppose that 0 = x.  Then −|x| = x and x = |x|.
+
+    Now suppose that x < 0.  Then |x| = −x.  Hence −|x| = x, and 0 < |x|.  Hence −|x| = x and x < |x|.
+
+    g. Assume that |z| < u.  By (f), z ≤ |z|.  Hence z < u.  By (f), −|z| ≤ z.  But −|z| > −u since |z| < u.  Hence −u < z.  Conversely, assume that −u < z < u.  If |z| = z, then |z| < u.  If |z| = −z then −u < −|z|.  Hence |z| < u.
+
+    h. Similar to (g).
+
+    i. Assume that u ≥ v and u ≥ −v.  If 0 ≤ v then |v| = v.  If v < 0 then |v| = −v.  In either case, u ≥ |v|.
+
+    j. −|x| ≤ x ≤ |x|, and −|y| ≤ y ≤ |y|.  So
+
+        (−|x|) + (−|y|) ≤ x + y ≤ |x| + |y|.
+
+    Hence −(|x| + |y|) ≤ x + y ≤ |x| + |y|.  By (h) we obtain |x + y| ≤ |x| + |y|.
+
+    k. |x| = |y + (x − y)| ≤ |y| + |x − y| by (j).  Therefore |x − y| ≥ |x| − |y|.  Similarly, |y − x| ≥ |y| − |x|.  But |x − y| = |y − x| by (d).  Hence
+
+        |x − y| ≥ |x| − |y|     and     |x − y| ≥ |y| − |x|.
+
+    Notice that |y| − |x| = −(|x| − |y|).  Hence |x − y| ≥ ||x| − |y||.
