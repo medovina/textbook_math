@@ -126,6 +126,8 @@ Axiom 32.3.1.  There is a binary operation · : ℤ → ℤ → ℤ such that fo
 
     z(n, j) · z(k, i) = z(n · k + j · i, j · k + n · i).
 
+Definition.  For all x : ℤ, x² = x · x.
+
 Theorem 32.4 (Properties of Multiplication).  Let a, b, c : ℤ.
 
     a. a · b = b · a.
@@ -408,6 +410,9 @@ Theorem 34.2.  Let x, y, z : ℤ.
     g. If x is positive and y is positive then x + y is positive.
     h. If x is negative and y is negative then x · y is positive.
     i. If x is positive and y is negative then x · y is negative.
+    j. If x ≠ 0 then x² > 0.
+    k. x² ≥ 0.
+    l. −1 < 0 < 1.
 
 Proof.
 
@@ -433,3 +438,9 @@ Proof.
     h. If x < 0 and y < 0 then by (d) 0 < −x and 0 < −y.  Hence 0 < (−x) · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 33.1.i.
 
     i. Assume 0 < x and y < 0.  Then 0 < −y by (d).  Hence 0 < x · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 33.1.h.  Hence 0 < −(x · y).  Then x · y < 0 by (d).
+
+    j. If x ≠ 0 then x < 0 or 0 < x.  If 0 < x then x² > 0 by (g).  If x < 0 then x² > 0 by (h).
+
+    k. Follows from (j) and the fact that 0 · 0 = 0.
+
+    l. By (j), 0 < 1².  But 1² = 1.  Hence 0 < 1.  By (c), −1 < 0.
