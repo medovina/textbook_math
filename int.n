@@ -444,3 +444,38 @@ Proof.
     k. Follows from (j) and the fact that 0 · 0 = 0.
 
     l. By (j), 0 < 1².  But 1² = 1.  Hence 0 < 1.  By (c), −1 < 0.
+
+# For the moment we define ⊆ only on Set(ℤ).
+
+Definition.  Let A, B : Set(ℤ).  A ⊆ B if x ∈ A implies x ∈ B for all x : ℤ.
+
+# Here we show that the positive integers form a Peano system.
+
+Axiom.  There is a function T : ℤ → ℤ such that for all x ∈ 𝒫, T(x) = x + 1.
+
+Theorem 34.7.
+
+    a. 1 ∈ 𝒫.
+    b. For all x ∈ 𝒫, T(x) ∈ 𝒫.
+    c. Let x ∈ 𝒫.  1 ≠ T(x) = x + 1.
+    d. Let x, y ∈ 𝒫.  If T(x) = T(y) then x = y.
+    e. Let A : Set(ℤ).  Suppose that A ⊆ 𝒫.  Also suppose that 1 ∈ A and for all x ∈ A, x + 1 ∈ A.  Then A = 𝒫.
+
+Proof.
+
+    a. z(2, 1) = 1 and 1 < 2.
+
+    b. Follows from Lemma 34.5.c and the fact that 1 ∈ 𝒫.
+
+    c. If 1 = x + 1 then x = 0, contradicting Lemma 34.5.a.
+
+    d. If x + 1 = y + 1 then x = y by Theorem 33.1.a.
+
+    e. Let B = { n : ℕ | z(n + 1, 1) ∈ A }.  First, 1 ∈ B since z(1 + 1, 1) = z(2, 1) = 1 ∈ A.  Next, let n ∈ B.  So z(n + 1, 1) ∈ A.  Hence z(n + 1, 1) + 1 ∈ A.  But
+
+        z(n + 1, 1) + 1 = z(n + 1, 1) + z(2, 1) = z(n + 1 + 2, 1 + 1)
+                                 = z((n + 1) + 1, 1).
+
+    Hence n + 1 ∈ B.  We have shown that for all n ∈ B, n + 1 ∈ B.  Hence by [induction on ℕ] B = ℕ.  Thus for every n : ℕ, z(n + 1, 1) ∈ A.
+
+    It suffices then to show that for every a ∈ 𝒫, a = z(n + 1, 1) for some n : ℕ.  To see this, let a ∈ 𝒫 .  There are some k, i : ℕ such that a = z(k, i).  Since a ∈ 𝒫, k > i.  Hence k = i + j for some j : ℕ.  Thus (k, i) ~ (j + 1, 1) since k + 1 = j + 1 + i.  Therefore a = z(k, i) = z(j + 1, 1) for some j : ℕ.
