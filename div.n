@@ -29,3 +29,43 @@ Suppose that r' = r.  Then r' − r = 0.  Hence (q − q')a = 0.  But a ≠ 0.  
 Now suppose that r ≠ r'.  Hence q − q' ≠ 0.  Therefore |q − q'| ≥ 1, so |(q − q')a| = |q − q'| · |a| ≥ |a| = a.  Thus |r' − r| ≥ a.  Now, r' < a and −r ≤ 0.  Hence r' − r < a.  Likewise, r < a and −r' ≤ 0.  Hence r − r' < a.  But either |r' − r| = r − r' or |r' − r| = r' − r.  So |r' − r| < a.  This is a contradiction.
 
 Thus r' = r and q' = q.
+
+Definition.  For all a, b : ℤ, a | b iff there exists c : ℤ such that b = ac.
+
+Theorem 35.2.  Let a, b, c : ℤ.
+
+    a. a | 0.
+    b. 1 | a.
+    c. a | a.
+    d. If a | b and b | c then a | c.
+    e. If c ≠ 0 and a | c then |a| ≤ |c|.
+    f. If 0 | c then c = 0.
+    g. a | b and b | a if and only if a = b or a = −b.
+    h. a | a · b.
+    i. If a | b and a | c then a | b + c.
+    j. If a | b and a | c then a | b − c.
+    k. If a | 1 then a = 1 or a = −1.
+
+Proof.
+
+    a. 0 = a · 0.
+
+    b. a = 1 · a.
+
+    c. a = a · 1.
+
+    d. Suppose that a | b and b | c.  Then there are some d, e : ℤ such that b = ae and c = bd.  Then c = (ae)d = a(ed).  Hence a | c.
+
+    e. Assume that a | c and c ≠ 0.  Then there is some d : ℤ such that c = ad.  Hence |c| = |a| · |d|.  Since c ≠ 0, d ≠ 0.  Therefore |d| ≥ 1.  Hence |c| = |a| · |d| ≥ |a|.
+
+    f. Suppose that 0 | c.  Then there is some d : ℤ such that c = 0 · d = 0.
+
+    g. Assume that a | b and b | a.  By (f), if a = 0 or b = 0 then a = b = 0.  Assume further that a ≠ 0 and b ≠ 0.  By (e), |a| ≤ |b| and |b| ≤ |a|.  Hence |a| = |b|.  Therefore a = b or a = −b.
+
+    h. Let c : ℤ = b.  Then a · b = a · c.
+
+    i. Suppose that a | b and a | c.  Then there are some d, t : ℤ such that b = da and c = ta.  Then b + c = da + ta = (d + t)a.
+
+    j. Suppose that a | b and a | c.  Then there are some d, t : ℤ such that b = da and c = ta.  Then b − c = da − ta = (d − t)a.
+
+    k. Assume that a | 1.  By (e), |a| ≤ 1.  Hence |a| = 0 or |a| = 1.  But |a| ≠ 0 since 0 ∤ 1.  Hence |a| = 1.  Thus a = 1 or a = −1.
