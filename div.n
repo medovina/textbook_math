@@ -93,3 +93,9 @@ Proof.  Let A = { z : ℤ | z = xa + yb for some x, y : ℤ }.  We will show tha
 Let B = { x ∈ A | x is positive }.  By Axiom 34.7.2 there is some d : ℤ such that d is a least element of B.  Then d = x'a + y'b for some x', y' : ℤ.  Clearly for all c : ℤ, if c | a and c | b then c | (x'a + y'b).  Thus for all c : ℤ, if c | a and c | b then c | d.
 
 We will now show that d | a and d | b.  By [Division] there are some q, r : ℤ such that a = qd + r and 0 ≤ r < d.  Hence a = q(x'a + y'b) + r.  Then r = (1 − qx')a + (−y')b.  Thus r ∈ A.  Since r < d and d is the least element of B, it cannot be that r is positive.  Therefore r = 0.  Thus a = qd, which implies that d | a.  d | b by a similar argument.  Thus d | a and d | b.
+
+Definition.  Let a, b : ℤ.  a and b are relatively prime if for all c : ℤ with c > 0, if c | a and c | b then c = 1.
+
+Lemma 35.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
+
+Proof.  Suppose that a and b are relatively prime.  Let c : ℤ, and suppose that c is the gcd of a and b.  Then c ≯ 1.  Now suppose that the gcd of a and b is 1.  Let c : ℤ.  If c | a and c | b and c > 0 then c | 1, so c = 1.
