@@ -1,6 +1,6 @@
 using nat;
 
-# Integers: definition
+# 3.1 Definition of the integers
 
 Definition.  For all n, j, k, i : ℕ, (n, j) ~ (k, i) if and only if n + i = k + j.
 
@@ -26,7 +26,7 @@ Proof.
 
     Hence by [Associativity of Addition] and [Commutativity of Addition] and [Cancellation Law for Addition] h + n = m + i.  Thus (h, i) ~ (m, n).
 
-Axiom 31.2.  There exists a type ℤ (the integers) with a function z : ℕ ⨯ ℕ → ℤ such that
+Axiom 31.2.  There exists a function z : ℕ ⨯ ℕ → ℤ such that
 
   a. For all n, j, k, i ∈ ℕ, z(n, j) = z(k, i) if and only if (n, j) ~ (k, i).  [equality on ℤ]
   b. For all x : ℤ, there exist some n, j : ℕ such that x = z(n, j).
@@ -445,16 +445,6 @@ Proof.
 
     l. By (j), 0 < 1².  But 1² = 1.  Hence 0 < 1.  By (c), −1 < 0.
 
-# Set-related definitions on ℤ
-
-Definition.  Let A, B : Set(ℤ).  A ⊆ B if x ∈ A implies x ∈ B for all x : ℤ.
-
-Definition.  ∅ = { x : ℤ | x ≠ x }.
-
-Definition.  For all S : Set(ℤ), S is empty iff there is no n : ℤ such that n ∈ S.  S is nonempty iff S is not empty.
-
-Definition.  For all A : Set(ℤ) and z : ℤ, z is a least element of A if z ∈ A and for all u : ℤ, if u ∈ A then z ≤ u.
-
 # Here we show that the positive integers form a Peano system.
 
 Axiom 34.6.1.  There is a function T : ℤ → ℤ such that for all x ∈ 𝒫, T(x) = x + 1.
@@ -488,10 +478,14 @@ Proof.
 
 # We have shown that the positive integers 𝒫 form a Peano system, so the theorems we have proved about ℕ should now be applicable to 𝒫 as well.  Here we reassert some of our theorems about ℕ as axioms on 𝒫.
 
-# a restatement of Exercise 4.4.1, applied to 𝒫
+# restatement of Exercise 4.4.1, applied to 𝒫
+
 Axiom 34.7.1.  For all x, y ∈ 𝒫, x < y if and only if x + 1 ≤ y.
 
-# a restatement of Theorem 4.5, applied to 𝒫
+# restatement of Theorem 4.5 (Least Number Principle), applied to 𝒫
+
+Definition.  For all A : Set(ℤ) and z : ℤ, z is a least element of A if z ∈ A and for all u : ℤ, if u ∈ A then z ≤ u.
+
 Axiom 34.7.2.  Let A : Set(ℤ).  Suppose that A ⊆ 𝒫 and A is nonempty.  Then there exists some x : ℤ such that x is a least element of A.
 
 # Absolute value function

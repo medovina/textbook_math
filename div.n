@@ -1,5 +1,7 @@
 using int;
 
+# 3.5 Greatest common divisor; primes
+
 Theorem 35.1 (Division).  Let a : ℤ.  Suppose that a > 1.  Then for any b : ℤ there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.
 
 Proof.  Let B = { b : ℤ | b > 0 and there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a }.  1 = 0 · a + 1, so 1 ∈ B.  Now let b ∈ B.  Thus there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.  Since r < a it follows from Axiom 34.7.1 that r + 1 ≤ a.

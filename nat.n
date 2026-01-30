@@ -1,6 +1,8 @@
+using set;
+
 # 2.1 Peano systems
 
-Axiom 1.  There exists a type ℕ (the natural numbers) with an element 1 : ℕ and a function S : ℕ → ℕ such that
+Axiom 1.  There exists an element 1 : ℕ and a function S : ℕ → ℕ such that
 
   1. For all x : ℕ, S(x) ≠ 1.
   2. For all x, y : ℕ, if x ≠ y then S(x) ≠ S(y).
@@ -190,17 +192,9 @@ Proof.
 
 Exercise 4.4.1.  For all x, y : ℕ, x < y if and only if S(x) ≤ y.
 
-# Set-related definitions on ℕ
-
-Definition.  ∅ = { x : ℕ | x ≠ x }.
-
-Definition.  For all S : Set(ℕ), S is empty iff there is no n : ℕ such that n ∈ S.  S is nonempty iff S is not empty.
-
-Definition.  For all A, B : Set(ℕ), A ∩ B = { x : ℕ | x ∈ A and x ∈ B }.
+# Least number principle
 
 Definition.  For all A : Set(ℕ) and z : ℕ, z is a least element of A if z ∈ A and for all u : ℕ, if u ∈ A then z ≤ u.
-
-# Least number principle
 
 Lemma 4.4.2.  Let A : Set(ℕ).  Let x, y : ℕ.  If x is a least element of A, and y is a least element of A then x = y.
 
@@ -226,7 +220,7 @@ If S(x) ∈ A then by [**] and Theorem 4.2.b S(x) is a least element of A, which
 
 We have shown that for all x ∈ B, S(x) ∈ B.  By [induction on ℕ] B = ℕ.  But B ∩ A = ∅.  So A is empty, contradicting our assumption that A is nonempty.
 
-# Multiplication
+# 2.5 Multiplication
 
 Axiom 5.1.  There is a binary operation · : ℕ → ℕ → ℕ such that for all x, y ∈ ℕ,
 
