@@ -69,3 +69,17 @@ Proof.
     j. Suppose that a | b and a | c.  Then there are some d, t : ℤ such that b = da and c = ta.  Then b − c = da − ta = (d − t)a.
 
     k. Assume that a | 1.  By (e), |a| ≤ 1.  Hence |a| = 0 or |a| = 1.  But |a| ≠ 0 since 0 ∤ 1.  Hence |a| = 1.  Thus a = 1 or a = −1.
+
+Definition (greatest common divisor).  Let a, b, d : ℤ.  d is a gcd of a and b if and only if d ≥ 0 and d | a and d | b and for all c : ℤ, if c | a and c | b then c | d.
+
+Theorem 35.2.1.  Let a, b, d, d' : ℤ.
+
+    a. Suppose that d is a gcd of a and b, and d' is a gcd of a and b.  Then d = d'.  [gcd is unique]
+    b. 0 is the gcd of 0 and 0.
+    c. If a ≠ 0, then the gcd of 0 and a is |a|.
+    d. The gcd of 1 and a is 1.
+    e. If a ≠ 0 or b ≠ 0 and d is the gcd of a and b, then 0 < d.
+
+Proof.
+
+    a. We know that d | d' and d' | d.  Hence by Theorem 35.2.g either d' = d or d' = −d.  Suppose that d' = −d.  Since 0 ≤ d, it follows that d' = −d ≤ 0.  But since 0 ≤ d', d' = 0.  Hence in all cases d' = d.
