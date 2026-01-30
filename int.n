@@ -445,9 +445,15 @@ Proof.
 
     l. By (j), 0 < 1².  But 1² = 1.  Hence 0 < 1.  By (c), −1 < 0.
 
-# For the moment we define ⊆ only on Set(ℤ).
+# Set-related definitions on ℤ
 
 Definition.  Let A, B : Set(ℤ).  A ⊆ B if x ∈ A implies x ∈ B for all x : ℤ.
+
+Definition.  ∅ = { x : ℤ | x ≠ x }.
+
+Definition.  For all S : Set(ℤ), S is empty iff there is no n : ℤ such that n ∈ S.  S is nonempty iff S is not empty.
+
+Definition.  For all A : Set(ℤ) and z : ℤ, z is a least element of A if z ∈ A and for all u : ℤ, if u ∈ A then z ≤ u.
 
 # Here we show that the positive integers form a Peano system.
 
@@ -481,10 +487,6 @@ Proof.
     It suffices then to show that for every a ∈ 𝒫, a = z(n + 1, 1) for some n : ℕ.  To see this, let a ∈ 𝒫 .  There are some k, i : ℕ such that a = z(k, i).  Since a ∈ 𝒫, k > i.  Hence k = i + j for some j : ℕ.  Thus (k, i) ~ (j + 1, 1) since k + 1 = j + 1 + i.  Therefore a = z(k, i) = z(j + 1, 1) for some j : ℕ.
 
 # We have shown that the positive integers 𝒫 form a Peano system, so the theorems we have proved about ℕ should now be applicable to 𝒫 as well.  Here we reassert some of our theorems about ℕ as axioms on 𝒫.
-
-Definition.  For all S : Set(ℤ), S is empty iff there is no n : ℤ such that n ∈ S.  S is nonempty iff S is not empty.
-
-Definition.  For all A : Set(ℤ) and z : ℤ, z is a least element of A if z ∈ A and for all u : ℤ, if u ∈ A then z ≤ u.
 
 # a restatement of Exercise 4.4.1, applied to 𝒫
 Axiom 34.7.1.  For all x, y ∈ 𝒫, x < y if and only if x + 1 ≤ y.

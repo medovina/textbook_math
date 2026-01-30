@@ -94,6 +94,8 @@ Let B = { x ∈ A | x is positive }.  By Axiom 34.7.2 there is some d : ℤ such
 
 We will now show that d | a and d | b.  By [Division] there are some q, r : ℤ such that a = qd + r and 0 ≤ r < d.  Hence a = q(x'a + y'b) + r.  Then r = (1 − qx')a + (−y')b.  Thus r ∈ A.  Since r < d and d is the least element of B, it cannot be that r is positive.  Therefore r = 0.  Thus a = qd, which implies that d | a.  d | b by a similar argument.  Thus d | a and d | b.
 
+# Relative primality
+
 Definition.  Let a, b : ℤ.  a and b are relatively prime if for all c : ℤ with c > 0, if c | a and c | b then c = 1.
 
 Lemma 35.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
@@ -103,3 +105,17 @@ Proof.  Suppose that a and b are relatively prime.  Let c : ℤ, and suppose tha
 Lemma 35.4.  Let a, b : ℤ.  a and b are relatively prime if and only if 1 = xa + yb for some x, y : ℤ.
 
 Proof.  If a and b are relatively prime, then the gcd of a and b is 1, so 1 = xa + yb for some x, y : ℤ by Theorem 35.3.  Conversely, suppose that 1 = xa + yb for some x, y : ℤ.  Let c : ℤ.  If c | a and c | b then c | xa + yb, so c | 1.  But for all d : ℤ, if d > 0 and d | 1 then d = 1.
+
+# Prime numbers
+
+Definition.  Let a : ℤ.  a is prime if and only if a > 1 and for all c : ℤ, if c > 0 and c | a then c = a or c = 1.  a is composite if and only if a is not prime.
+
+Lemma 35.5.  Let a : ℤ with a > 1.  Then there is some p : ℤ such that p is prime and p | a.
+
+Proof.  Let A = { a : ℤ | a > 1 and there is no p : ℤ such that p is prime and p | a }.  Assume that A ≠ ∅.  There is some b : ℤ such that b is a least element of A.  Then 1 < b and there is no p : ℤ such that p is prime and p | b.
+
+Suppose that b is prime.  But b | b, contradicting the fact that there is no p : ℤ such that p is prime and p | b.
+
+Now suppose that b is not prime.  By definition, there is some c : ℤ such that c > 0 and c | b and c ≠ b and c ≠ 1.  Since c | b, it follows by Theorem 35.2.e that c < b.  Hence c ∉ A.  So there is some p : ℤ such that p is prime and p | c.  Then p | b, contradicting the fact that b ∈ A.
+
+In any case we have a contradiction.  Hence A is empty.
