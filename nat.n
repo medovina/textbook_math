@@ -188,6 +188,8 @@ Proof.
   g. Follows easily from (e).
   h. Follows easily from (e).
 
+Exercise 4.4.1.  For all x, y : ℕ, x < y if and only if S(x) ≤ y.
+
 # Set-related definitions, for the moment only on Set(ℕ)
 
 Definition.  ∅ = { x : ℕ | x ≠ x }.
@@ -200,11 +202,11 @@ Definition.  For all A, B : Set(ℕ), A ∩ B = { x : ℕ | x ∈ A and x ∈ B 
 
 Definition.  For all A : Set(ℕ) and z : ℕ, z is a least element of A if z ∈ A and for all u : ℕ, if u ∈ A then z ≤ u.
 
-Lemma 4.4.1.  Let A : Set(ℕ).  Let x, y : ℕ.  If x is a least element of A, and y is a least element of A then x = y.
+Lemma 4.4.2.  Let A : Set(ℕ).  Let x, y : ℕ.  If x is a least element of A, and y is a least element of A then x = y.
 
 Proof.  By Theorem 4.3.f.
 
-Lemma 4.4.2.  Let A : Set(ℕ).  Suppose that 1 ∈ A.  Then 1 is a least element of A.
+Lemma 4.4.3.  Let A : Set(ℕ).  Suppose that 1 ∈ A.  Then 1 is a least element of A.
 
 Theorem 4.5 (Least Number Principle). Let A : Set(ℕ).  Suppose that A is nonempty.  Then there exists some x : ℕ such that x is a least element of A.
 

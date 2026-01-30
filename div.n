@@ -1,0 +1,31 @@
+using int;
+
+Theorem 35.1 (Division).  Let a : ℤ.  Suppose that a > 1.  Then for any b : ℤ there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.
+
+Proof.  Let B = { b : ℤ | b > 0 and there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a }.  1 = 0 · a + 1, so 1 ∈ B.  Now let b ∈ B.  Thus there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.  Since r < a it follows from Exercise 4.4.1 that r + 1 ≤ a.
+
+Suppose that r + 1 = a.  Then
+
+    b + 1 = qa + (r + 1) = qa + a = (q + 1)a.
+
+Thus b + 1 = (q + 1)a + 0 and 0 ≤ 0 < a.
+
+Now suppose that r + 1 < a.  Then b + 1 = qa + (r + 1) and 0 ≤ r + 1 < a.
+
+In either case b + 1 ∈ B.  We have shown that for all b ∈ B, b + 1 ∈ B.  So by [induction on ℤ] B = 𝒫.
+
+Let b : ℤ.  If b = 0 then b = 0 · a + 0.  Now suppose that b < 0.  Then −b > 0.   Hence there exist q', r' : ℤ such that −b = q'a + r' and 0 ≤ r' < a.
+
+Suppose that r' = 0.  Then −b = q'a.  Hence b = (−q')a.  So b = (−q')a + 0.
+
+Now suppose that 0 < r'.  Then b = (−q')a + (−r') = (−q')a + (a − r') − a = (−q' − 1)a + (a − r').  Observe that a − r' < a since 0 < r'.  Also 0 < a − r' since r' < a.
+
+Theorem 35.1.1 (Uniqueness of Division).  Let a, b : ℤ.  Suppose that a > 1.  Suppose that there exist q, r, q', r' : ℤ such that b = q · a + r = q' · a + r', and 0 ≤ r < a and 0 ≤ r' < a.  Then q = q' and r = r'.
+
+Proof.  We know that (q − q')a = r' − r.
+
+Suppose that r' = r.  Then r' − r = 0.  Hence (q − q')a = 0.  But a ≠ 0.  Hence q − q' = 0.  Therefore q = q'.
+
+Now suppose that r ≠ r'.  Hence q − q' ≠ 0.  Therefore |q − q'| ≥ 1, so |(q − q')a| = |q − q'| · |a| ≥ |a| = a.  Thus |r' − r| ≥ a.  Now, r' < a and −r ≤ 0.  Hence r' − r < a.  Likewise, r < a and −r' ≤ 0.  Hence r − r' < a.  But either |r' − r| = r − r' or |r' − r| = r' − r.  So |r' − r| < a.  This is a contradiction.
+
+Thus r' = r and q' = q.
