@@ -99,3 +99,7 @@ Definition.  Let a, b : ℤ.  a and b are relatively prime if for all c : ℤ wi
 Lemma 35.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
 
 Proof.  Suppose that a and b are relatively prime.  Let c : ℤ, and suppose that c is the gcd of a and b.  Then c ≯ 1.  Now suppose that the gcd of a and b is 1.  Let c : ℤ.  If c | a and c | b and c > 0 then c | 1, so c = 1.
+
+Lemma 35.4.  Let a, b : ℤ.  a and b are relatively prime if and only if 1 = xa + yb for some x, y : ℤ.
+
+Proof.  If a and b are relatively prime, then the gcd of a and b is 1, so 1 = xa + yb for some x, y : ℤ by Theorem 35.3.  Conversely, suppose that 1 = xa + yb for some x, y : ℤ.  Let c : ℤ.  If c | a and c | b then c | xa + yb, so c | 1.  But for all d : ℤ, if d > 0 and d | 1 then d = 1.
