@@ -124,7 +124,7 @@ In any case we have a contradiction.  Hence A is empty.
 
 # Definition of the product of a sequence
 
-Axiom.  There is a function Π : (ℤ → ℤ) ⨯ ℤ ⨯ ℤ → ℤ such that for all a : ℤ → ℤ and i, j : ℤ,
+Axiom.  For all a : ℤ → ℤ and i, j : ℤ, the product aᵢ ··· aⱼ : ℤ is defined as follows:
 
     a. If j < i then aᵢ ··· aⱼ = 1.
     b. If i ≤ j then aᵢ ··· aⱼ = aᵢ · (aᵢ₊₁ ··· aⱼ).
