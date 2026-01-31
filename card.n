@@ -4,7 +4,7 @@ using int;
 
 Definition.  For all S : Set(ℤ) and T : Set(ℤ), S ≈ T if there exists some f : ℤ → ℤ such that f is a bijection from S to T.
 
-Axiom.  There is a function P : ℤ → Set(ℤ) such that for all n : ℤ with n > 0,
+Axiom D.1.  There is a function P : ℤ → Set(ℤ) such that for all n : ℤ with n > 0,
 
     P(n) = { k : ℤ | 1 ≤ k ≤ n }.
 
