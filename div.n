@@ -2,9 +2,9 @@ using card, int;
 
 # 3.5 Greatest common divisor; primes
 
-Theorem 35.1 (Division).  Let a : ℤ.  Suppose that a > 1.  Then for any b : ℤ there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.
+Theorem 3.5.1 (Division).  Let a : ℤ.  Suppose that a > 1.  Then for any b : ℤ there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.
 
-Proof.  Let B = { b : ℤ | b > 0 and there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a }.  1 = 0 · a + 1, so 1 ∈ B.  Now let b ∈ B.  Thus there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.  Since r < a it follows from Axiom 34.7.1 that r + 1 ≤ a.
+Proof.  Let B = { b : ℤ | b > 0 and there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a }.  1 = 0 · a + 1, so 1 ∈ B.  Now let b ∈ B.  Thus there exist q, r : ℤ such that b = qa + r and 0 ≤ r < a.  Since r < a it follows from Axiom 3.4.7.1 that r + 1 ≤ a.
 
 Suppose that r + 1 = a.  Then
 
@@ -22,7 +22,7 @@ Suppose that r' = 0.  Then −b = q'a.  Hence b = (−q')a.  So b = (−q')a + 0
 
 Now suppose that 0 < r'.  Then b = (−q')a + (−r') = (−q')a + (a − r') − a = (−q' − 1)a + (a − r').  Observe that a − r' < a since 0 < r'.  Also 0 < a − r' since r' < a.
 
-Theorem 35.1.1 (Uniqueness of Division).  Let a, b : ℤ.  Suppose that a > 1.  Suppose that there exist q, r, q', r' : ℤ such that b = q · a + r = q' · a + r', and 0 ≤ r < a and 0 ≤ r' < a.  Then q = q' and r = r'.
+Theorem 3.5.1.1 (Uniqueness of Division).  Let a, b : ℤ.  Suppose that a > 1.  Suppose that there exist q, r, q', r' : ℤ such that b = q · a + r = q' · a + r', and 0 ≤ r < a and 0 ≤ r' < a.  Then q = q' and r = r'.
 
 Proof.  We know that (q − q')a = r' − r.
 
@@ -34,7 +34,7 @@ Thus r' = r and q' = q.
 
 Definition.  For all a, b : ℤ, a | b iff there exists c : ℤ such that b = ac.
 
-Theorem 35.2.  Let a, b, c : ℤ.
+Theorem 3.5.2.  Let a, b, c : ℤ.
 
     a. a | 0.
     b. 1 | a.
@@ -74,7 +74,7 @@ Proof.
 
 Definition (greatest common divisor).  Let a, b, d : ℤ.  d is a gcd of a and b if and only if d ≥ 0 and d | a and d | b and for all c : ℤ, if c | a and c | b then c | d.
 
-Theorem 35.2.1.  Let a, b, d, d' : ℤ.
+Theorem 3.5.2.1.  Let a, b, d, d' : ℤ.
 
     a. Suppose that d is a gcd of a and b, and d' is a gcd of a and b.  Then d = d'.  [gcd is unique]
     b. 0 is the gcd of 0 and 0.
@@ -84,15 +84,15 @@ Theorem 35.2.1.  Let a, b, d, d' : ℤ.
 
 Proof.
 
-    a. We know that d | d' and d' | d.  Hence by Theorem 35.2.g either d' = d or d' = −d.  Suppose that d' = −d.  Since 0 ≤ d, it follows that d' = −d ≤ 0.  But since 0 ≤ d', d' = 0.  Hence in all cases d' = d.
+    a. We know that d | d' and d' | d.  Hence by Theorem 3.5.2.g either d' = d or d' = −d.  Suppose that d' = −d.  Since 0 ≤ d, it follows that d' = −d ≤ 0.  But since 0 ≤ d', d' = 0.  Hence in all cases d' = d.
 
 # Bézout's theorem
 
-Theorem 35.3 (Bézout).  Let a, b : ℤ.  Suppose that a ≠ 0 or b ≠ 0.  Then there exist d, x, y : ℤ such that d is the gcd of a and b and d is positive and d = xa + yb.
+Theorem 3.5.3 (Bézout).  Let a, b : ℤ.  Suppose that a ≠ 0 or b ≠ 0.  Then there exist d, x, y : ℤ such that d is the gcd of a and b and d is positive and d = xa + yb.
 
 Proof.  Let A = { z : ℤ | z = xa + yb for some x, y : ℤ }.  We will show that there is some z ∈ A such that z is positive.  Suppose that a ≠ 0.  If 0 < a then 1 · a + 0 · b = |a| > 0.  If a < 0 then (−1) · a + 0 · b = |a| > 0.  Now suppose that b ≠ 0.  If 0 < b then 0 · a + 1 · b = |b| > 0.  If b < 0 then 0 · a + (−1) · b = |b| > 0.  So in any case there is some z : ℤ such that z ∈ A and z is positive.
 
-Let B = { x ∈ A | x is positive }.  By Axiom 34.7.2 there is some d : ℤ such that d is a least element of B.  Then d = x'a + y'b for some x', y' : ℤ.  Clearly for all c : ℤ, if c | a and c | b then c | (x'a + y'b).  Thus for all c : ℤ, if c | a and c | b then c | d.
+Let B = { x ∈ A | x is positive }.  By Axiom 3.4.7.2 there is some d : ℤ such that d is a least element of B.  Then d = x'a + y'b for some x', y' : ℤ.  Clearly for all c : ℤ, if c | a and c | b then c | (x'a + y'b).  Thus for all c : ℤ, if c | a and c | b then c | d.
 
 We will now show that d | a and d | b.  By [Division] there are some q, r : ℤ such that a = qd + r and 0 ≤ r < d.  Hence a = q(x'a + y'b) + r.  Then r = (1 − qx')a + (−y')b.  Thus r ∈ A.  Since r < d and d is the least element of B, it cannot be that r is positive.  Therefore r = 0.  Thus a = qd, which implies that d | a.  d | b by a similar argument.  Thus d | a and d | b.
 
@@ -100,25 +100,25 @@ We will now show that d | a and d | b.  By [Division] there are some q, r : ℤ 
 
 Definition.  Let a, b : ℤ.  a and b are relatively prime if for all c : ℤ with c > 0, if c | a and c | b then c = 1.
 
-Lemma 35.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
+Lemma 3.5.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
 
 Proof.  Suppose that a and b are relatively prime.  Let c : ℤ, and suppose that c is the gcd of a and b.  Then c ≯ 1.  Now suppose that the gcd of a and b is 1.  Let c : ℤ.  If c | a and c | b and c > 0 then c | 1, so c = 1.
 
-Lemma 35.4.  Let a, b : ℤ.  a and b are relatively prime if and only if 1 = xa + yb for some x, y : ℤ.
+Lemma 3.5.4.  Let a, b : ℤ.  a and b are relatively prime if and only if 1 = xa + yb for some x, y : ℤ.
 
-Proof.  If a and b are relatively prime, then the gcd of a and b is 1, so 1 = xa + yb for some x, y : ℤ by Theorem 35.3.  Conversely, suppose that 1 = xa + yb for some x, y : ℤ.  Let c : ℤ.  If c | a and c | b then c | xa + yb, so c | 1.  But for all d : ℤ, if d > 0 and d | 1 then d = 1.
+Proof.  If a and b are relatively prime, then the gcd of a and b is 1, so 1 = xa + yb for some x, y : ℤ by Theorem 3.5.3.  Conversely, suppose that 1 = xa + yb for some x, y : ℤ.  Let c : ℤ.  If c | a and c | b then c | xa + yb, so c | 1.  But for all d : ℤ, if d > 0 and d | 1 then d = 1.
 
 # Prime numbers
 
 Definition.  Let a : ℤ.  a is prime if and only if a > 1 and for all c : ℤ, if c > 0 and c | a then c = a or c = 1.  a is composite if and only if a is not prime.
 
-Lemma 35.5.  Let a : ℤ with a > 1.  Then there is some p : ℤ such that p is prime and p | a.
+Lemma 3.5.5.  Let a : ℤ with a > 1.  Then there is some p : ℤ such that p is prime and p | a.
 
 Proof.  Let A = { a : ℤ | a > 1 and there is no p : ℤ such that p is prime and p | a }.  Assume that A ≠ ∅.  There is some b : ℤ such that b is a least element of A.  Then 1 < b and there is no p : ℤ such that p is prime and p | b.
 
 Suppose that b is prime.  But b | b, contradicting the fact that there is no p : ℤ such that p is prime and p | b.
 
-Now suppose that b is not prime.  By definition, there is some c : ℤ such that c > 0 and c | b and c ≠ b and c ≠ 1.  Since c | b, it follows by Theorem 35.2.e that c < b.  Hence c ∉ A.  So there is some p : ℤ such that p is prime and p | c.  Then p | b, contradicting the fact that b ∈ A.
+Now suppose that b is not prime.  By definition, there is some c : ℤ such that c > 0 and c | b and c ≠ b and c ≠ 1.  Since c | b, it follows by Theorem 3.5.2.e that c < b.  Hence c ∉ A.  So there is some p : ℤ such that p is prime and p | c.  Then p | b, contradicting the fact that b ∈ A.
 
 In any case we have a contradiction.  Hence A is empty.
 
@@ -131,10 +131,10 @@ Axiom.  There is a function Π : (ℤ → ℤ) ⨯ ℤ ⨯ ℤ → ℤ such that
 
 # Euclid's theorem on the infinitude of primes
 
-Theorem 35.6.  { x : ℤ | x is prime } is infinite.
+Theorem 3.5.6.  { x : ℤ | x is prime } is infinite.
 
 Proof.  Let P = { x : ℤ | x is prime }.  Assume that P is finite.  Then there is some k : ℤ and q : ℤ → ℤ such that P = { x : ℤ | x = q(i) for some i : ℤ with 1 ≤ i ≤ k }.  Let
 
     u = Π(q, 1, k) + 1.
 
-Clearly u > 1.  By Lemma 35.5 there is some p : ℤ such that p is prime and p | u.  Hence p = q(j) for some j : ℤ with 1 ≤ j ≤ k.  Hence p | u and p | Π(q, 1, k).  Therefore p = 1 since 1 = u − Π(q, 1, k).  Hence p = 1, contradicting the fact that p is a prime.  Therefore { x : ℤ | x is prime } is infinite.
+Clearly u > 1.  By Lemma 3.5.5 there is some p : ℤ such that p is prime and p | u.  Hence p = q(j) for some j : ℤ with 1 ≤ j ≤ k.  Hence p | u and p | Π(q, 1, k).  Therefore p = 1 since 1 = u − Π(q, 1, k).  Hence p = 1, contradicting the fact that p is a prime.  Therefore { x : ℤ | x is prime } is infinite.

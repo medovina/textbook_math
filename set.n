@@ -1,6 +1,6 @@
 # declaration of ℕ
 
-Axiom 11.1.  There exists a type ℕ (the natural numbers).
+Axiom 1.1.  There exists a type ℕ (the natural numbers).
 
 # Set-related notions, defined on ℕ
 
@@ -16,7 +16,7 @@ Definition.  For all A, B : Set(ℕ), A ∩ B = { x : ℕ | x ∈ A and x ∈ B 
 
 # declaration of ℤ
 
-Axiom 11.2.  There exists a type ℤ (the integers).
+Axiom 1.2.  There exists a type ℤ (the integers).
 
 # Set-related notions, defined on ℤ
 
