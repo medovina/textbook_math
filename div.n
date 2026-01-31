@@ -126,15 +126,15 @@ In any case we have a contradiction.  Hence A is empty.
 
 Axiom.  There is a function Π : (ℤ → ℤ) ⨯ ℤ ⨯ ℤ → ℤ such that for all a : ℤ → ℤ and i, j : ℤ,
 
-    a. If j < i then Π(a, i, j) = 1.
-    b. If i ≤ j then Π(a, i, j) = a(i) · Π(a, i + 1, j).
+    a. If j < i then aᵢ ··· aⱼ = 1.
+    b. If i ≤ j then aᵢ ··· aⱼ = aᵢ · (aᵢ₊₁ ··· aⱼ).
 
 # Euclid's theorem on the infinitude of primes
 
 Theorem 3.5.6.  { x : ℤ | x is prime } is infinite.
 
-Proof.  Let P = { x : ℤ | x is prime }.  Assume that P is finite.  Then there is some k : ℤ and q : ℤ → ℤ such that P = { x : ℤ | x = q(i) for some i : ℤ with 1 ≤ i ≤ k }.  Let
+Proof.  Let P = { x : ℤ | x is prime }.  Assume that P is finite.  Then there is some k : ℤ and q : ℤ → ℤ such that P = { x : ℤ | x = qᵢ for some i : ℤ with 1 ≤ i ≤ k }.  Let
 
-    u = Π(q, 1, k) + 1.
+    u = (q₁ ··· qₖ) + 1.
 
-Clearly u > 1.  By Lemma 3.5.5 there is some p : ℤ such that p is prime and p | u.  Hence p = q(j) for some j : ℤ with 1 ≤ j ≤ k.  Hence p | u and p | Π(q, 1, k).  Therefore p = 1 since 1 = u − Π(q, 1, k).  Hence p = 1, contradicting the fact that p is a prime.  Therefore { x : ℤ | x is prime } is infinite.
+Clearly u > 1.  By Lemma 3.5.5 there is some p : ℤ such that p is prime and p | u.  Hence p = qⱼ for some j : ℤ with 1 ≤ j ≤ k.  Hence p | u and p | (q₁ ··· qₖ).  Therefore p | 1 since 1 = u − (q₁ ··· qₖ).  Hence p = 1, contradicting the fact that p is a prime.  Therefore { x : ℤ | x is prime } is infinite.
