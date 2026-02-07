@@ -1,0 +1,355 @@
+using set;
+
+# 2.1 Peano systems
+
+Axiom 2.1.  There exists a type ℕ (the natural numbers) with an element 1 : ℕ and a function S : ℕ → ℕ such that
+
+  1. For all x : ℕ, S(x) ≠ 1.
+  2. For all x, y : ℕ, if x ≠ y then S(x) ≠ S(y).
+  3. Let B : Set(ℕ).  If 1 ∈ B, and for all x : ℕ x ∈ B implies S(x) ∈ B, then B = ℕ.  [induction on ℕ]
+
+Theorem 2.1.1.  For all x : ℕ, x = 1 or there exists some y : ℕ such that x = S(y).
+
+Proof.  Let
+
+    B = { x : ℕ | x = 1 or there exists some y : ℕ such that x = S(y) }.
+
+We must show that ℕ = B.  First, it is obvious that 1 ∈ B.  Second, assume x ∈ B.  Hence there exists y : ℕ such that S(x) = S(y).  Thus S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  Therefore by Axiom 2.1.3 ℕ = B.
+
+Theorem 2.1.2.  For all x : ℕ, S(x) ≠ x.
+
+Proof.  Let B = { x : ℕ | S(x) ≠ x }.  We must prove that B = ℕ.  First, 1 ∈ B by Axiom 2.1.1.  Second, assume x ∈ B.  Then S(x) ≠ x.  Since S(x) ≠ x, it follows by Axiom 2.1.2 that S(S(x)) ≠ S(x).  Hence S(x) ∈ B.  We have shown that x ∈ B implies S(x) ∈ B.  By Axiom 2.1.3 ℕ = B.
+
+# 2.3 Addition
+
+Axiom 2.3.1.  There is a binary operation + : ℕ → ℕ → ℕ such that for all x, y : ℕ,
+
+  a. x + 1 = S(x).                [equation α]
+  b. x + S(y) = S(x + y).     [equation β]
+
+Lemma 2.3.1.1.  Let x, y : ℕ.  x + (y + 1) = (x + y) + 1.  [equation β']
+
+Proof.  By [equation β] and [equation α].
+
+Definition.  2 = S(1).
+
+Theorem 2.3.2 (Associativity of Addition).
+
+  x + (y + z) = (x + y) + z    for all x, y, z : ℕ.
+
+Proof. Let x, y : ℕ.  Let
+
+  A = { z : ℕ | x + (y + z) = (x + y) + z }.
+
+We must show that A = ℕ.  First, 1 ∈ A by [equation β'].  Second, assume z ∈ A.  Then x + (y + z) = (x + y) + z.  Now,
+
+  x + (y + S(z)) = x + (S(y + z))   by [equation β]
+                        = S(x + (y + z))    by [equation β]
+                        = S((x + y) + z)    by the inductive hypothesis
+                        = (x + y) + S(z)    by [equation β].
+
+Thus S(z) ∈ A.  We have shown that z ∈ A implies S(z) ∈ A.  Hence by [induction on ℕ] ℕ = A.
+
+Lemma 2.3.3.
+
+  a. x + 1 = 1 + x for all x : ℕ.
+  b. S(y) + x = S(y + x) for all x, y : ℕ.
+
+Proof.
+
+  a. Let A = { x : ℕ | x + 1 = 1 + x }.  We must show that A = ℕ.  First, 1 ∈ A since 1 + 1 = 1 + 1.  Second, assume x ∈ A.  Then x + 1 = 1 + x.  Hence
+
+    S(x) + 1 = (x + 1) + 1    by [equation α]
+                  = (1 + x) + 1    by the inductive hypothesis
+                  = 1 + (x + 1)    by Theorem 2.3.2
+                  = 1 + S(x)         by [equation α].
+
+  Thus S(x) ∈ A.  We have shown that x ∈ A implies S(x) ∈ A.  By [induction on ℕ] A = ℕ.
+
+  b. Let x, y : ℕ.  S(y) + x = (y + 1) + x = y + (1 + x) = y + (x + 1) = (y + x) + 1 = S(y + x).
+
+Theorem 2.3.4 (Commutativity of Addition).
+
+  x + y = y + x   for all x, y : ℕ.
+
+Proof.  Let x : ℕ.  Let A = { y : ℕ | x + y = y + x }.  We must show that A = ℕ.  First, 1 ∈ A since x + 1 = 1 + x by Lemma 2.3.3.a.  Second, assume y ∈ A.  Then x + y = y + x.  Hence
+
+  x + S(y) = S(x + y)
+                = S(y + x)
+                = S(y) + x  by Lemma 2.3.3.b.
+
+Thus S(y) ∈ A.  Hence y ∈ A implies S(y) ∈ A.  Therefore by [induction on ℕ] A = ℕ.
+
+Theorem 2.3.5 (Cancellation Law for Addition).
+
+  x + z = y + z implies x = y   for all x, y, z : ℕ.
+
+Proof.  Let x, y : ℕ.  Let A = { z : ℕ | x + z = y + z implies x = y }.  We must prove that A= ℕ.  First, x + 1 = y + 1 implies x = y by Axiom 2.1.2 and [equation α], so 1 ∈ A.  Second, assume z ∈ A.  Then x + z = y + z implies x = y.  Now assume x + S(z) = y + S(z).  Then by [equation β] S(x + z) = S(y + z).  Therefore by Axiom 2.1.2 x + z = y + z.  Hence by inductive hypothesis x = y.  Thus we have shown that x + S(z) = y + S(z) implies x = y, so S(z) ∈ A.  Therefore z ∈ A implies S(z) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 2.3.6.  y ≠ x + y for all x, y : ℕ.
+
+Proof.  Let x : ℕ.  Let A = { y ∈ ℕ | y ≠ x + y }.  We must prove that A = ℕ.  Clearly 1 ∈ A since 1 ≠ x + 1 by [equation α] and Axiom 2.1.1.  Assume that y ∈ A.  Then y ≠ x + y.  Hence by Axiom 2.1.2 S(y) ≠ S(x + y).  But S(x + y) = x + S(y) by [equation β].  Hence S(y) ≠ x + S(y), so S(y) ∈ A.  We have shown that y ∈ A implies S(y) ∈ A.  By [induction on ℕ] A = ℕ.
+
+# 2.4 The order relation
+
+Definition.  For all x, y : ℕ, x < y if there is some z : ℕ such that x + z = y.
+
+Theorem 2.4.1.
+
+  a. x ≮ x for all x : ℕ.   [irreflexivity of < on ℕ]
+  b. x < y and y < z implies x < z for all x, y, z : ℕ.  [transitivity of < on ℕ]
+  c. Let x, y : ℕ.  Precisely one of x < y or x = y or y < x holds.  [trichotomy on ℕ]
+
+Proof.
+
+  a. Let x : ℕ.  If x < x then there exists z : ℕ such that x + z = x.  But x + z ≠ x for all z : ℕ by Theorem 2.3.6 and Theorem 2.3.4.  Hence x ≮ x.
+
+  b. Let x, y, z : ℕ.  Assume x < y and y < z.  Then x + u = y and y + v = z for some u, v : ℕ.  Then x + (u + v) = (x + u) + v = y + v = z.  Thus there exists w : ℕ such that x + w = z, so x < z.
+
+  c. If x < y and x = y then x < x, contradicting (a).  If x = y and y < x, then x < x, again contradicting (a).  If x < y and y < x then by (b) we have x < x, contradicting (a).  So at most one of x < y or x = y or y < x holds.
+
+  We will now prove that at least one of x < y or x = y or y < x holds.  Let A = { x : ℕ | x < y or x = y or y < x }.  We must prove that A = ℕ.  First, by Theorem 2.1.1 we have y = 1 or there exists z : ℕ such that y = S(z).  Hence by [equation α] and Lemma 2.3.3.a y = 1 or there exists z : ℕ such that 1 + z = y.  So y = 1 or 1 < y, so 1 ∈ A.
+
+  Second, assume v ∈ A.  Then v < y or v = y or y < v.
+
+  Suppose that v < y.  Then v + z = y for some z : ℕ.  By Theorem 2.1.1, z = 1 or there exists u : ℕ such that z = S(u).  If z = 1 then v + 1 = y, that is S(v) = y.  If z = S(u) for some u : ℕ then S(v) + u = v + S(u) = v + z = y, hence S(v) < y.  So S(v) < y or S(v) = y.
+
+  Now suppose that v = y.  Then S(v) = S(y) = y + 1.  Hence y < S(v).
+
+  Now suppose that y < v.  Then v = y + u for some u : ℕ.  Hence S(v) = S(y + u) = y + S(u).  Thus y < S(v).
+
+  In all cases S(v) < y or S(v) = y or y < S(v).  Hence S(v) ∈ A.  We have shown that for all v ∈ A, S(v) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 2.4.2.  Let x : ℕ.
+
+  a. x < S(x).
+  b. There is no y : ℕ such that x < y < S(x).
+
+Proof.
+
+  a. x + 1 = S(x).  Therefore x < S(x).
+
+  b. Let y : ℕ, and assume that x < y < S(x).  Since x < y we obtain x + z = y for some z : ℕ.  By Theorem 2.1.1, z = 1 or there is some u : ℕ such that z = S(u).  If z = 1 then S(x) = x + 1 = x + z = y, contradicting Theorem 2.4.1.c since y < S(x).  If z = S(u) for some u : ℕ then S(x) + u = x + S(u) = x + z = y, so S(x) < y, contradicting Theorem 2.4.1.c since y < S(x).  In either case we have a contradiction.
+
+Definition.
+
+    For all x, y : ℕ, x ≤ y if x < y or x = y.  We write x > y if y < x.  We write x ≥ y if y ≤ x.
+
+Theorem 2.4.3.  Let x, y, z : ℕ.
+
+  a. x ≤ x.  [reflexivity of ≤ on ℕ]
+  b. If x < y and y ≤ z then x < z.
+  c. If x ≤ y and y < z then x < z.
+  d. If x ≤ y and y ≤ z then x ≤ z.  [transitivity of ≤ on ℕ]
+  e. x ≤ y or y ≤ x.
+  f. If x ≤ y and y ≤ x then x = y.
+
+Proof.
+
+  a. x = x.
+
+  b. Assume that x < y and y ≤ z.  Since y ≤ z we have y = z or y < z.  If y = z then x < z.  If y = z then x < z by substitutivity of equality.  If y < z then x < z by Theorem 2.4.1.b.
+
+  c. Similar to (b).
+
+  d. Follows from (b) and (c) and the transitivity of equality.
+
+  e. Follows from Theorem 2.4.1.c.
+
+  f. Assume that x ≤ y and y ≤ x.  It follows by definition that x = y or x < y, and x = y or y < x.  If x ≠ y then x < y and y < x, contradicting Theorem 2.4.1.c.
+
+# helper for Theorem 2.4.4.c
+Lemma 2.4.3.1.  Let x, y, z : ℕ.  If x < y then x + z < y + z.
+
+Proof.  Assume that x < y.  Then x + w = y for some w : ℕ.  Hence (x + z) + w = (x + w) + z = y + z.  Thus x + z < y + z.
+
+Theorem 2.4.4.  Let x, y, z, u, v : ℕ.
+
+  a. If x ≠ 1 then 1 < x.
+  b. x < x + y.
+  c. x < y if and only if x + z < y + z.
+  d. x ≤ y if and only if x + z ≤ y + z.
+  e. If x < y and u < v then x + u < y + v.
+  f. If x < y and u ≤ v then x + u < y + v.
+  g. If x ≤ y and u < v then x + u < y + v.
+  h. If x ≤ y and u ≤ v then x + u ≤ y + v.
+
+Proof.
+
+  a. Assume that x ≠ 1.  Then by Theorem 2.1.1 there is some u : ℕ such that x = S(u).  Hence x = u + 1 = 1 + u for some u : ℕ.  Therefore 1 < x.
+
+  b. There is some u : ℕ such that x + u = x + y.  Hence by definition x < x + y.
+
+  c. If x < y then x + z < y + z by Lemma 2.4.3.1.  Assume x + z < y + z.  We shall prove that x < y by reductio ad absurdum.  Assume that x ≮ y.  By Theorem 2.4.1.c, x = y or y < x.  But if x = y then x + z = y + z, contradicting x + z < y + z.  Likewise, if y < x then by Lemma 2.4.3.1 y + z < x + z, contradicting x + z < y + z.
+
+  d. Follows easily from (c) and Theorem 2.3.5.
+
+  e. Assume x < y and u < v.  By Theorem 2.4.4.c, x + u < y + u and y + u < y + v.  Hence by Theorem 2.4.1.b x + u < y + v.
+
+  f. Follows easily from (e).
+  g. Follows easily from (e).
+  h. Follows easily from (e).
+
+Exercise 2.4.4.1.  For all x, y : ℕ, x < y if and only if S(x) ≤ y.
+
+# Least number principle
+
+Definition.  For all A : Set(ℕ) and z : ℕ, z is a least element of A if z ∈ A and for all u : ℕ, if u ∈ A then z ≤ u.
+
+Lemma 2.4.4.2.  Let A : Set(ℕ).  Let x, y : ℕ.  If x is a least element of A, and y is a least element of A then x = y.
+
+Proof.  By Theorem 2.4.3.f.
+
+Lemma 2.4.4.3.  Let A : Set(ℕ).  Suppose that 1 ∈ A.  Then 1 is a least element of A.
+
+Theorem 2.4.5 (Least Number Principle). Let A : Set(ℕ).  Suppose that A is nonempty.  Then there exists some x : ℕ such that x is a least element of A.
+
+Proof.  We know that A ≠ ∅.  Assume there is no x : ℕ such that x is a least element of A.  We will show that this leads to a contradiction.  Let
+
+    B = { x : ℕ | for all u : ℕ, if u ≤ x then u ∉ A }.
+
+Observe that for all x ∈ B, x ∉ A.  We will show by [induction on ℕ] that B = ℕ.
+
+First assume that 1 ∉ B.  Then there is some u : ℕ such that u ≤ 1 and u ∈ A.  If u ≤ 1 then u = 1 by Theorem 2.4.4.a.  Thus 1 ∈ A.  But then 1 is a least element of A, contradicting our assumption.  Hence 1 ∈ B.
+
+Let x ∈ B.  Then
+
+    for all u : ℕ, if u ≤ x then u ∉ A.   [**]
+
+If S(x) ∈ A then by [**] and Theorem 2.4.2.b S(x) is a least element of A, which is a contradiction.  So S(x) ∉ A.  Hence by [**] and Theorem 2.4.2.b for all u : ℕ, if u ≤ S(x) then u ∉ A.  Then S(x) ∈ B.
+
+We have shown that for all x ∈ B, S(x) ∈ B.  By [induction on ℕ] B = ℕ.  But B ∩ A = ∅.  So A is empty, contradicting our assumption that A is nonempty.
+
+# 2.5 Multiplication
+
+Axiom 2.5.1.  There is a binary operation · : ℕ → ℕ → ℕ such that for all x, y ∈ ℕ,
+
+    a. x · 1 = x.                       [equation γ]
+    b. x · S(y) = x · y + x.       [equation δ]
+
+Lemma 2.5.1.1.  For all x, y : ℕ, x · (y + 1) = (x · y) + x.    [equation δ']
+
+Proof.  By [equation δ] and [equation α].
+
+Theorem 2.5.2 (Distributive Laws).  Let x, y, z : ℕ.
+
+  a. x · (y + z) = x · y + x · z.   [left distributive law on ℕ]
+  b. (y + z) · x = y · x + z · x.   [right distributive law on ℕ]
+
+Proof.
+
+  a. Consider any x, y : ℕ.  Let
+
+        B = { z : ℕ | x · (y + z) = x · y + x · z }.
+
+  We must prove that B = ℕ.  First,
+
+      x · (y + 1) = x · y + x         by [equation δ']
+                       = x · y + x · 1    by [equation γ].
+
+   So 1 ∈ B.  Second, let z ∈ B.  Then x · (y + z) = x · y + x · z.  Therefore
+
+    x · (y + S(z)) = x · S(y + z)              by [equation β]
+                         = x · (y + z) + x         by [equation δ]
+                         = (x · y + x · z) + x    by the inductive hypothesis
+                         = x · y + (x · z + x)    by [Associativity of Addition]
+                         = x · y + x · S(z)        by [equation δ].
+
+  Thus S(z) ∈ B.  We have shown that for all z ∈ B, S(z) ∈ B.  Hence by [induction on ℕ] B = ℕ.
+
+  b. Consider any y, z : ℕ.  Let A = { x : ℕ | (y + z) · x = y · x + z · x }.  We must prove that A = ℕ.  First,
+
+      (y + z) · 1 = y + z               by [equation γ]
+                       = y · 1 + z · 1     by [equation γ].
+
+  So 1 ∈ A.  Second, let x ∈ A.  Then (y + z) · x = y · x + z · x.  Hence
+
+    (y + z) · S(x) = ((y + z) · x) + (y + z)     by [equation δ]
+                         = (y · x + z · x) + (y + z)  by the inductive hypothesis
+                         = (y · x + y) + (z · x + z)  by [Associativity of Addition] and [Commutativity of Addition]
+                         = y · S(x) + z · S(x)           by [equation δ].
+
+  Thus S(x) ∈ A.  We have shown that for all x ∈ A, S(x) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Lemma 2.5.3.  1 · x = x · 1 for all x : ℕ.
+
+Proof.  Let A = { x : ℕ | 1 · x = x · 1 }.  We must prove that A = ℕ.  Clearly 1 ∈ A since 1 · 1 = 1 · 1.  Now let x ∈ A.  Then 1 · x = x · 1.  Hence
+
+    1 · S(x) = 1 · x + 1      by [equation δ]
+                = x · 1 + 1      by the inductive hypothesis
+                = x + 1           by [equation γ]
+                = S(x)             by [equation α]
+                = S(x) · 1        by [equation γ].
+
+Thus S(x) ∈ A.  We have shown that for all x ∈ A, S(x) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 2.5.4 (Commutativity of Multiplication).
+
+      x · y = y · x       for all x, y : ℕ.
+
+Proof.  Consider any x : ℕ. Let A = { y : ℕ | x · y = y · x }.  We must prove that A = ℕ.  By Lemma 2.5.3, 1 ∈ A.  Now let y ∈ A.  Thus x · y = y · x.  Hence
+
+  x · S(y) = x · y + x          by [equation δ]
+              = y · x + x          by the inductive hypothesis
+              = y · x + x · 1     by [equation γ]
+              = y · x + 1 · x     by Lemma 2.5.3
+              = (y + 1) · x       by Theorem 2.5.2.b
+              = S(y) · x            by [equation α].
+
+Thus S(y) ∈ A.  We have shown that for all y ∈ A, S(y) ∈ A.  By [induction on ℕ] A = ℕ.
+
+Theorem 2.5.5 (Associativity of Multiplication).
+
+    x · (y · z) = (x · y) · z     for all x, y, z : ℕ.
+
+Proof.  Consider any x, y : ℕ.  Let
+
+  B = { z : ℕ | x · (y · z) = (x · y) · z }.
+
+We have
+
+    x · (y · 1) = x · y           by [equation γ]
+                   = (x · y) · 1    by [equation γ].
+
+So 1 ∈ B.  Let z ∈ B.  Thus x · (y · z) = (x · y) · z.  Hence
+
+    x · (y · S(z)) = x · (y · z + y)        by [equation δ]
+                       = x · (y · z) + x · y   by Theorem 2.5.2.a
+                       = (x · y) · z + x · y   by the inductive hypothesis
+                       = (x · y) · S(z)          by [equation δ].
+
+Thus S(z) ∈ B.  We have shown that for all z ∈ B, S(z) ∈ B.  By [induction on ℕ] B = ℕ.
+
+Lemma 2.5.5.1.  Let x, y, z : ℕ.  If x < y then x · z < y · z.
+
+Proof.  Assume that x < y.  Then y = x + u for some u : ℕ.  Hence we have y · z = (x + u) · z = x · z + u · z by Theorem 2.5.2.b.  Thus there exists v : ℕ such that y · z = x · z + v.  Hence x · z < y · z.
+
+Theorem 2.5.6.  Let x, y, z : ℕ.  x < y if and only if x · z < y · z.
+
+Proof.  If x < y then x · z < y · z by Lemma 2.5.5.1.  Assume that x · z < y · z.  We shall show that x < y by reductio ad absurdum.  Assume x ≮ y.  Then by [trichotomy on ℕ] x = y or y < x.  If x = y then x · z = y · z, contradicting the assumption that x · z < y · z.  If y < x then by Lemma 2.5.5.1 y · z < x · z, contradicting the assumption that x · z < y · z.  In both cases we have a contradiction.
+
+Corollary 2.5.7 (Cancellation Law for Multiplication).
+
+    Let x, y, z : ℕ.  If x · z = y · z then x = y.
+
+Proof.  Assume that x · z = y · z.  We shall prove that x = y by reductio ad absurdum.  Assume that x ≠ y.  Then by [trichotomy on ℕ] x < y or y < x.  If x < y then by Theorem 2.5.6 x · z < y · z, contradicting our assumption that x · z = y · z.  If y < x then by Theorem 2.5.6 y · z < x · z, contradicting our assumption that x · z = y · z.  In both cases we have a contradiction.
+
+Corollary 2.5.8.  Let x, y, z, u, v : ℕ.
+
+  a. x ≤ y if and only if x · z ≤ y · z.
+  b. z ≤ y · z.
+  c. 1 < y if and only if z < y · z.
+  d. If x < u and y < v then x · y < u · v.
+  e. If x < u and y ≤ v then x · y < u · v.
+  f. If x ≤ u and y < v then x · y < u · v.
+  g. If x ≤ u and y ≤ v then x · y ≤ u · v.
+
+Proof.
+
+  a. Follows immediately from Theorem 2.5.6 and Corollary 2.5.7.
+  b. Follows from (a).
+  c. Follows from Theorem 2.5.6.
+  d. Assume x < u and y < v.  By Theorem 2.5.6 we may write x · y < u · y and u · y < u · v.  By [transitivity of < on ℕ] x · y < u · v.
+  e. Follows from (d).
+  f. Follows from (d).
+  g. Follows from (d).

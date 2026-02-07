@@ -1,0 +1,27 @@
+# Set-related notions
+
+# 1.6 Membership
+
+Definition.  Let A, B : Set(σ).  A ⊆ B if x ∈ A implies x ∈ B for all x : σ.
+
+# 1.7 The empty set
+
+Definition.  ∅ = { x : σ | x ≠ x }.
+
+Definition.  For all S : Set(σ), S is empty iff there is no n : σ such that n ∈ S.  S is nonempty iff S is not empty.
+
+# 1.8 Union and intersection
+
+Definition.  For all A, B : Set(σ), A ∩ B = { x : σ | x ∈ A and x ∈ B }.
+
+# 1.19 Functions from A into B
+
+Definition.  For all S : Set(σ) and T : Set(τ) and f : σ → τ, f is a mapping from S to T if f(x) ∈ T for all x ∈ S.
+
+Definition. For all S : Set(σ) and T : Set(τ) and f : σ → τ, f is a surjection from S to T if f is a mapping from S to T and for all y ∈ T, there exists some x ∈ S such that f(x) = y.
+
+# 1.20 One-one functions
+
+Definition.  For all S : Set(σ) and T : Set(τ) and f : σ → τ, f is an injection from S to T if f is a mapping from S to T and for all x, y ∈ S, if f(x) = f(y) then x = y.
+
+Definition. For all S : Set(σ) and T : Set(τ) and f : σ → τ, f is a bijection from S to T if f is an injection from S to T and f is a surjection from S to T. 

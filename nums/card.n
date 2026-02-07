@@ -1,0 +1,11 @@
+using int;
+
+# Appendix D: Finite, infinite, and denumerable sets
+
+Definition.  For all S : Set(σ) and T : Set(τ), S ≈ T if there exists some f : σ → τ such that f is a bijection from S to T.
+
+Axiom D.1.  There is a function P : ℤ → Set(ℤ) such that for all n : ℤ with n > 0,
+
+    P(n) = { k : ℤ | 1 ≤ k ≤ n }.
+
+Definition.  For all A : Set(σ), A is finite if A = ∅ or there exists n : ℤ such that n > 0 and A ≈ P(n).  A is infinite iff A is not finite.

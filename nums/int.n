@@ -1,0 +1,554 @@
+using nat;
+
+# 3.1 Definition of the integers
+
+Definition.  For all n, j, k, i : ℕ, (n, j) ~ (k, i) if and only if n + i = k + j.
+
+Theorem 3.1.1.  Let h, i, j, k, m, n : ℕ.
+
+    a. (h, i) ~ (h, i).
+    b. If (h, i) ~ (j, k) then (j, k) ~ (h, i).
+    c. If (h, i) ~ (j, k) and (j, k) ~ (m, n) then (h, i) ~ (m, n).
+
+Proof.
+
+    a. h + i = h + i.
+
+    b. Assume (h, i) ~ (j, k).  Thus h + k = j + i.  Then j + i = h + k, that is (j, k) ~ (h, i).
+
+    c.  Assume (h, i) ~ (j, k) and (j, k) ~ (m, n).  Thus
+
+        h + k = j + i       and     j + n = m + k.
+
+    So we obtain
+
+        h + k + j + n = j + i + m + k.
+
+    Hence by [Associativity of Addition] and [Commutativity of Addition] and [Cancellation Law for Addition] h + n = m + i.  Thus (h, i) ~ (m, n).
+
+Axiom 3.1.2.  There exists a type ℤ (the integers) with a function z : ℕ ⨯ ℕ → ℤ such that
+
+  a. For all n, j, k, i ∈ ℕ, z(n, j) = z(k, i) if and only if (n, j) ~ (k, i).  [equality on ℤ]
+  b. For all x : ℤ, there exist some n, j : ℕ such that x = z(n, j).
+
+Definition.  Let 0 : ℤ = z(1, 1).  Let 1 : ℤ = z(2, 1).
+
+Lemma 3.1.3.  Let n, j : ℕ.
+
+    a. z(n, j) = 0 if and only if n = j.
+    b. z(n, j) = 1 if and only if n = j + 1.
+    c. 0 : ℤ ≠ 1.
+
+Proof.
+
+    a. (n, j) ~ (1, 1) iff n + 1 = 1 + j.  By [Cancellation Law for Addition],
+
+        n + 1 = 1 + j iff n = j.
+
+    b. (n, j) ~ (2, 1) iff n + 1 = 2 + j.  But 2 + j = 1 + 1 + j.  Hence by [Cancellation Law for Addition] n + 1 = 2 + j iff n = j + 1.
+
+    c. z(1, 1) = 0.  z(1, 1) ≠ 1.
+
+# 3.2 Addition and multiplication
+
+Lemma 3.2.1.  Let n, j, k, i, n', j', k', i' : ℕ.  Suppose that  (n, j) ~ (n', j') and (k, i) ~ (k', i').  Then
+
+    (n + k, j + i) ~ (n' + k', j' + i').
+
+Proof.  We know that n + j' = n' + j and k + i' = k' + i.  So we obtain (n + j') + (k + i') = (n' + j) + (k' + i).  By [Associativity of Addition] and [Commutativity of Addition],
+
+    (n + k) + (j' + i') = (n' + k') + (j + i),
+
+that is
+
+        (n + k, j + i) ~ (n' + k', j' + i').
+
+Axiom 3.2.1.1.  There is a binary operation + : ℤ → ℤ → ℤ such that for all n, j, k, i : ℕ,
+
+    z(n, j) + z(k, i) = z(n + k, j + i).
+
+Axiom 3.2.2.2.  There is a unary operation − : ℤ → ℤ such that for all a, b ∈ ℕ,
+
+  −z(a, b) = z(b, a).
+
+Theorem 3.2.2 (Properties of Addition).  Let a, b, c : ℤ.
+
+    a. a + b = b + a.
+    b. a + (b + c) = (a + b) + c.
+    c. a + 0 = a.
+    d. a + (−a) = 0.
+    e. If a + b = 0, then b = −a.
+
+Proof.
+
+    a. There are some n, j, k, i : ℕ such that a = z(n, j) and b = z(k, i).  By definition
+
+        a + b = z(n + k, j + i)     and     b + a = z(k + n, i + j).
+
+    Hence a + b = b + a by [Commutativity of Addition].
+
+    b. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).  Then b + c = z(k + m, i + h).  Hence a + (b + c) = z(n + (k + m), j + (i + h)).  Similarly, a + b = z(n + k, j + i), so (a + b) + c = z((n + k) + m, (j + i) + h).  Therefore a + (b + c) = (a + b) + c by [Associativity of Addition].
+
+    c. There are some n, j ∈ ℕ such that a = z(n, j).  Remember that z(1, 1) = 0.  Then a + 0 = z(n + 1, j + 1).  However (n + 1, j + 1) ~ (n, j) since (n + 1) + j = n + (j + 1).  Hence z(n + 1, j + 1) = z(n, j).  But z(n, j) = a.  Therefore a + 0 = a.
+
+    d. There are some n, j ∈ ℕ such that a = z(n, j).  Let d = −a.  So d = z(j, n).  Then a + (−a) = a + d = z(n + j, j + n) = z(n + j, n + j) = 0.
+    
+    e. Let d = −a.  Let u : ℤ.  Assume that a + u = 0.  We must show that u = d.  But
+
+        u = u + 0 = u + (a + d) = (u + a) + d
+           = (a + u) + d = 0 + d = d + 0 = d.
+
+Lemma 3.2.3.  Let n, j, k, i, n', j', k', i' : ℕ.  If (n, j) ~ (n', j') and (k, i) ~ (k', i') then
+
+    (n · k + j · i, j · k + n · i) ~ (n' · k' + j' · i', j' · k' + n' · i').
+
+Proof.  Assume (n, j) ~ (n', j') and (k, i) ~ (k', i').  Thus,
+
+    n + j' = n' + j.    [i]
+    k + i' = i + k'.    [ii]
+
+Let A = n · k + j · i + j' · k' + n' · i'.  Let B = n' · k' + j' · i' + j · k + n · i.  We must prove that A = B.
+
+We have
+
+    n · k + j' · k = n' · k + j · k        by [i].     [iii]
+    j' · k' + j' · i = j' · k + j' · i'         by [ii].    [iv]
+    i · j + i · n' = i · n + i · j'            by [i].     [v]
+    n' · k + n' · i' = n' · i + n' · k'    by [ii].    [vi]
+
+Let C = j' · k + j' · i + i · n' + n' · k.  We obtain
+
+    A + C = B + C                 by [iii] and [iv] and [v] and [vi].
+
+Hence by [Cancellation Law for Addition] A = B.
+
+Axiom 3.2.3.1.  There is a binary operation · : ℤ → ℤ → ℤ such that for all n, j, k, i : ℕ,
+
+    z(n, j) · z(k, i) = z(n · k + j · i, j · k + n · i).
+
+Definition.  For all x : ℤ, x² = x · x.
+
+Theorem 3.2.4 (Properties of Multiplication).  Let a, b, c : ℤ.
+
+    a. a · b = b · a.
+    b. a · (b · c) = (a · b) · c.
+    c. a · (b + c) = a · b + a · c.
+    d. a · 1 = a.
+    e. If a ≠ 0 and b ≠ 0 then a · b ≠ 0.
+
+Proof.
+
+    a. There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).
+
+        a · b = z(n · k + j · i, j · k + n · i).
+
+        b · a = z(k · n + i · j, i · n + k · j).
+
+    The result follows by [Commutativity of Addition] and [Commutativity of Multiplication].
+
+    b. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).
+
+            b · c = z(k · m + i · h, i · m + k · h).
+
+    Hence
+
+        a · (b · c) = z((n · (k · m + i · h)) + (j · (i · m + k · h)),
+                                (j · (k · m + i · h) + (n · (i · m + k · h))))
+                       = z(n · (k · m) + n · (i · h) + j · (i · m) + j · (k · h),
+                                j · (k · m) + j · (i · h) + n · (i · m) + n · (k · h))
+                                    by [left distributive law on ℕ].
+
+    On the other hand, a · b = z(n · k + j · i, j · k + n · i).  Hence
+
+        (a · b) · c = z((n · k + j · i) · m + (j · k + n · i) · h,
+                              (j · k + n · i) · m + (n · k + j · i) · h)
+                       = z((n · k) · m + (j · i) · m + (j · k) · h + (n · i) · h,
+                              (j · k) · m + (n · i) · m + (n · k) · h + (j · i) · h)
+                                    by [right distributive law on ℕ].
+
+    The result follows by [Associativity of Multiplication] and [Commutativity of Addition].
+
+    c. There are some n, j, k, i, m, h ∈ ℕ such that a = z(n, j) and b = z(k, i) and c = z(m, h).
+
+        a · (b + c) = z(n, j) · z(k + m, i + h)
+                         = z(n · (k + m) + j · (i + h), j · (k + m) + n · (i + h))
+                         = z(n · k + n · m + j · i + j · h,
+                               j · k + j · m + n · i + n · h) by [left distributive law on ℕ]
+                         = z(n · k + j · i, j · k + n · i) + z(n · m + j · h, j · m + n · h)
+                         = a · b + a · c.
+
+    d. There are some n, j ∈ ℕ such that a = z(n, j).
+
+    First, 2 · i = i + i for all i : ℕ.  So (2 · n + j) + j = n + (2 · j + n), which means that
+    
+            (2 · n + j, 2 · j + n) ~ (n, j).    [**]
+
+    Now
+
+        a · 1 = z(n, j) · z(2, 1)
+                = z(n · 2 + j · 1, j · 2 + n · 1)
+                = z(2 · n + j, 2 · j + n)
+                = z(n, j) by [**]
+                = a.
+
+    e. Assume a ≠ 0 and b ≠ 0.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  It follows that n ≠ j and k ≠ i.  Since k ≠ i, k < i or i < k by [trichotomy on ℕ].
+
+    Suppose that i < k.  Then k = i + u for some u : ℕ.  Since n ≠ j, it follows by Corollary 2.5.7 that n · u ≠ j · u.  Hence n · k + j · i = n · (i + u) + j · i = n · i + n · u + j · i ≠ n · i + j · u + j · i by [Cancellation Law for Addition] and the fact that n · u ≠ j · u.  But
+
+        n · i + j · u + j · i = j · (i + u) + n · i = j · k + n · i.
+
+    Thus n · k + j · i ≠ j · k + n · i.  Remember that
+
+        for all v, w : ℕ, z(v, w) = 0 if and only if v = w.  [**]
+    
+    And so
+
+        a · b = z(n · k + j · i, j · k + n · i) ≠ 0 by [**].
+
+    Now suppose that k < i.  Then a · b ≠ 0 as an exercise for the reader.
+
+# 3.3 Rings and integral domains
+
+Theorem 3.3.1 (Properties of Rings).  Let x, y, z : ℤ.
+
+    a. If x + y = x + z then y = z.
+    b. −0 = 0.
+    c. −(−x) = x.
+    d. If −x = −y then x = y.
+    e. −(x + y) = −x + −y.
+    f. If x + y = x then y = 0.
+    g. x · 0 = 0 = 0 · x.
+    h. −(x · y) = (−x) · y = x · (−y).
+    i. (−x) · (−y) = x · y.
+
+Proof.
+
+    a. Assume x + y = x + z.  We obtain (−x) + x + y = (−x) + x + z.  Hence 0 + y = 0 + z.  Therefore y = z.
+
+    b. 0 + 0 = 0 by Theorem 3.2.2.c.  It follows by Theorem 3.2.2.e that −0 = 0.
+
+    c. (−x) + x = x + (−x) = 0.  It follows by Theorem 3.2.2.e that −(−x) = x.
+
+    d. Assume that −x = −y.  Then −(−x) = −(−y).  The result follows by (c).
+
+    e. Observe that
+
+        (x + y) + (−x + −y) = (x + −x) + (y + −y) = 0 + 0 = 0.
+
+    It follows by Theorem 3.2.2.e that −(x + y) = −x + −y.
+
+    f. Follows from (a).
+
+    g. x · 0 = x · (0 + 0) = x · 0 + x · 0.  Then by (f) x · 0 = 0.  Similarly,
+
+        0 · x = (0 + 0) · x = 0 · x + 0 · x.  Then by (f) 0 · x = 0.
+
+    h. x · y + ((−x) · y) = (x + (−x)) · y = 0 · y = 0.  It follows by Theorem 3.2.2.e that −(x · y) = (−x) · y.  Similarly,
+
+            x · y + (x · (−y)) = x · (y + (−y)) = x · 0 = 0.
+
+    Hence x · (−y) = −(x · y).
+
+    i.  (−x) · (−y) = −(x · (−y))   by (h)
+                          = −(−(x · y))   by (h)
+                          = x · y             by (c).
+
+Definition.  For all x, y : ℤ, x − y = x + (−y).
+
+Theorem 3.3.2 (Properties of Subtraction).  Let x, y, z : ℤ.
+
+    a. x − x = 0.
+    b. −(x − y) = y − x.
+    c. x − y = 0 if and only if x = y.
+    d. x · (y − z) = x · y − x · z and
+        (y − z) · x = y · x − z · x.
+    e. (−1) · x = −x = x · (−1)   and   (−1) · (−1) = 1.
+
+Proof.
+
+    a. x − x = x + (−x) = 0.
+
+    b. −(x − y) = −(x + (−y))
+                      = (−x) + −(−y)   by Theorem 3.3.1.e
+                      = (−x) + y           by Theorem 3.3.1.c
+                      = y + (−x)
+                      = y − x.
+
+    c. If x = y then x − y = 0 by (a).  Conversely, assume x − y = 0.  Then x + (−y) = 0.  Hence −y = −x by Theorem 3.2.2.e.  Then x = y by Theorem 3.3.1.d.
+
+    d. x · (y − z) = x · (y + (−z)) = x · y + x · (−z)
+                         = x · y + −(x · z) = x · y − x · z.
+
+    Similarly,
+
+        (y − z) · x = (y + (−z)) · x = y · x + ((−z) · x)
+                         = y · x + (−(z · x)) = y · x − z · x.
+
+    e. (−1) · x = −(1 · x) = −x.
+        x · (−1) = −(x · 1) = −x.
+
+    Also,
+                (−1) · (−1) = (1 : ℤ) · 1     by Theorem 3.3.1.i
+                                  = 1.
+
+Theorem 3.3.3.  Let x, y, z : ℤ.  If x · y = x · z and x ≠ 0 then y = z.
+
+Proof.  Assume x · y = x · z and x ≠ 0.  Then x · y − x · z = 0 by Theorem 3.3.2.c.  Hence x · (y − z) = 0 by Theorem 3.3.2.d.  Since x ≠ 0, it follows by Theorem 3.2.4.e that y − z = 0.  Then y = z by Theorem 3.3.2.c.
+
+# 3.4 Ordered integral domains
+
+Lemma 3.4.4.  Let a : ℤ.  Let n, j, k, i : ℕ.  Suppose that z(n, j) = a and z(k, i) = a.  Then
+
+        j < n if and only if i < k.
+
+Proof.  Since z(n, j) = a and z(k, i) = a, we have (n, j) ~ (k, i), that is
+
+        n + i = k + j.      [*]
+
+Assume that j < n.  We must prove that i < k.  Assume that i ≮ k.  By Theorem 2.4.1.c, k ≤ i.  Since j < n and k ≤ i, by Theorem 2.4.4.f we have k + j < n + i.  This contradicts [*].  We have shown that j < n implies i < k.  By a similar argument i < k implies j < n.
+
+Definition.  𝒫 = { a : ℤ | for all n, j : ℕ, z(n, j) = a implies j < n }.
+
+Lemma 3.4.4.1.  For all a : ℤ, a ∈ 𝒫 if and only if j < n for some n, j : ℕ with z(n, j) = a.
+
+Proof.  By Lemma 3.4.4.
+
+Lemma 3.4.5.  Let a, b : ℤ.
+
+    a. 0 ∉ 𝒫.
+    b. a ∈ 𝒫  or a = 0 or −a ∈ 𝒫.
+    c. If a ∈ 𝒫 and b ∈ 𝒫 then a + b ∈ 𝒫.
+    d. If a ∈ 𝒫 and b ∈ 𝒫 then a · b ∈ 𝒫.
+
+Proof.
+
+    a. z(1, 1) = 0 and 1 ≮ 1.  Hence 0 ∉ 𝒫.
+
+    b. Let a : ℤ.  There are some n, j ∈ ℕ such that a = z(n, j).  By Theorem 2.4.1.c,
+
+            j < n       or      j = n       or      n < j.
+
+    If j < n then a ∈ 𝒫.
+    If j = n then a = 0.
+    If n < j then −a ∈ 𝒫  since z(j, n) = −a.
+    Hence a ∈ 𝒫 or a = 0 or −a ∈ 𝒫.
+
+    c. Assume a ∈ 𝒫 and b ∈ 𝒫.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  Then j < n and i < k.  Now a + b = z(n + k, j + i).  Since j < n and i < k, it follows by Theorem 2.4.4.e that j + i < n + k.  Hence a + b ∈ 𝒫.
+
+    d. Assume a ∈ 𝒫 and b ∈ 𝒫.  There are some n, j, k, i ∈ ℕ such that a = z(n, j) and b = z(k, i).  Then j < n and i < k.
+
+    By definition a · b = z(n · k + j · i, n · i + j · k).  We must show that
+
+        n · i + j · k < n · k + j · i.
+
+    Since i < k, by definition k = i + u for some u : ℕ.  Since j < n, we obtain j · u < n · u by Theorem 2.5.6.  Hence
+
+    n · i + j · k = n · i + j · (i + u) = n · i + j · i + j · u
+                     < n · i + j · i + n · u = n · i + n · u + j · i
+                     = n · (i + u) + j · i = n · k + j · i.
+
+Definition.  For all a, b ∈ ℤ, a < b if and only if b − a ∈ 𝒫.
+
+# ℤ satisfies the axioms of an ordered integral domain.
+
+Theorem 3.4.3.  Let x, y, z : ℤ.
+
+    a. x ≮ x.   [Axiom O1]
+    b. If x < y and y < z then x < z.   [Axiom O2]
+    c. x < y or x = y or y < x.     [Axiom O3]
+    d. If x < y then x + z < y + z.     [Axiom O4]
+    e. If x < y and 0 < z then x · z < y · z.   [Axiom O5]
+    f. 0 < x if and only if x ∈ 𝒫.
+
+Proof.
+
+    a. Assume x < x.  Then by definition x − x ∈ 𝒫.  But x − x = 0, contradicting Lemma 3.4.5.a.  Hence x ≮ x.
+
+    b. Assume x < y and y < z.  Then y − x ∈ 𝒫 and z − y ∈ 𝒫.  Hence by Lemma 3.4.5.c (y − x) + (z − y) ∈ 𝒫.  But (y − x) + (z − y) = z − x.  Thus z − x ∈ 𝒫, that is, x < z.
+
+    c. By Lemma 3.4.5.b, y − x ∈ 𝒫 or y − x = 0 or −(y − x) ∈ 𝒫.  If y − x ∈ 𝒫  then x < y.  If y − x = 0 then x = y.  If −(y − x) ∈ 𝒫 then −(y − x) = x − y, so x − y ∈ 𝒫, that is, y < x.  Thus x < y or x = y or y < x.
+
+    d. Assume x < y.  Then y − x ∈ 𝒫.  But (y + z) − (x + z) = y − x.  Hence x + z < y + z.
+
+    e. Assume x < y and 0 < z.  Then y − x ∈ 𝒫 and z − 0 ∈ 𝒫.  Hence z ∈ 𝒫 since z − 0 = z.  By Lemma 3.4.5.d, (y − x) · z ∈ 𝒫.  But (y − x) · z = y · z − x · z by Theorem 3.3.2.d.  Hence y · z − x · z ∈ 𝒫, that is, x · z < y · z.
+
+Definition.  For all x, y ∈ ℤ, x ≤ y iff x < y or x = y.
+
+Definition.  For all x, y ∈ ℤ, we write x > y iff y < x.  We write x ≥ y iff y ≤ x.
+
+Theorem 3.4.1.  Let x, y, z, u, v : ℤ.
+
+    a. Exactly one of the conditions x < y or x = y or y < x holds.
+    b. If x < y and u < v then x + u < y + v.
+    c. If x < y and u ≤ v then x + u < y + v.
+    d. If x ≤ y and u < v then x + u < y + v.
+    e. If x ≤ y and u ≤ v then x + u ≤ y + v.
+    f. If 0 < z and x · z < y · z then x < y.
+
+Proof.
+
+    a. By [Axiom O3] we have x < y or x = y or y < x.  If x < y and x = y then x < x, contradicting [Axiom O1].  If x = y and y < x then x < x, contradicting [Axiom O1].  If x < y and y < x then by [Axiom O2] x < x, again contradicting [Axiom O1].
+
+    b. Assume x < y and u < v.  From x < y we obtain x + u < y + u by [Axiom O4].  From u < v we obtain y + u < y + v by [Axiom O4].  Hence by [Axiom O2] x + u < y + v.
+
+    c. Follows easily from (b).
+    d. Follows easily from (b).
+    e. Follows easily from (b).
+
+    f. Assume 0 < z and x · z < y · z.  Assume x ≮ y.  Then y < x or y = x.  Hence either y · z < x · z or y · z = x · z, contradicting x · z < y · z.
+
+Definition.  For all x : ℤ, x is positive iff 0 < x.  x is negative iff x < 0.
+
+Theorem 3.4.2.  Let x, y, z : ℤ.
+
+    a. x < y if and only if y − x is positive.
+    b. x < y if and only if x − y is negative.
+    c. y is positive if and only if −y is negative.
+    d. x is negative if and only if −x is positive.
+    e. x < y if and only if −y < −x.
+    f. If x < y and z < 0 then y · z < x · z.
+    g. If x is positive and y is positive then x + y is positive.
+    h. If x is negative and y is negative then x · y is positive.
+    i. If x is positive and y is negative then x · y is negative.
+    j. If x ≠ 0 then x² > 0.
+    k. x² ≥ 0.
+    l. −1 < 0 < 1.
+
+Proof.
+
+    a. Assume x < y.  By [Axiom O4] we obtain x + (−x) < y + (−x), therefore 0 < y − x.  Conversely, assume 0 < y − x.  By [Axiom O4] we obtain x + 0 < x + (y − x), and therefore x < y.
+
+    b. Assume x < y.  By [Axiom O4] we obtain x + (−y) < y + (−y), therefore x − y < 0.  Conversely, assume x − y < 0.  By [Axiom O4] we obtain y + (x − y) < y, and therefore x < y.
+
+    c. Follows from (b).
+
+    d. Follows from (a).
+
+    e. By (a) x < y iff 0 < y − x.  Also by (a)
+
+        −y < −x iff 0 < (−x) − (−y).
+
+    But (−x) − (−y) = (−x) + (−(−y)) = (−x) + y = y − x.
+
+    f. Assume x < y and z < 0.  By (d), 0 < −z.  Hence by [Axiom O5] x · (−z) < y · (−z).  But x · (−z) = −(x · z) and y · (−z) = −(y · z) by Theorem 3.3.1.h.  Hence −(x · z) < −(y · z).  Therefore by (e)
+                        y · z < x · z.
+    
+    g. Assume 0 < x and 0 < y.  By Theorem 3.4.1.b, 0 < x + y.  Also by [Axiom O5] 0 · y < x · y.  But 0 · y = 0.
+
+    h. If x < 0 and y < 0 then by (d) 0 < −x and 0 < −y.  Hence 0 < (−x) · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 3.3.1.i.
+
+    i. Assume 0 < x and y < 0.  Then 0 < −y by (d).  Hence 0 < x · (−y) by (g).  But x · (−y) = −(x · y) by Theorem 3.3.1.h.  Hence 0 < −(x · y).  Then x · y < 0 by (d).
+
+    j. If x ≠ 0 then x < 0 or 0 < x.  If 0 < x then x² > 0 by (g).  If x < 0 then x² > 0 by (h).
+
+    k. Follows from (j) and the fact that 0 · 0 = 0.
+
+    l. By (j), 0 < 1².  But 1² = 1.  Hence 0 < 1.  By (c), −1 < 0.
+
+# Here we show that the positive integers form a Peano system.
+
+Axiom 3.4.6.1.  There is a function T : ℤ → ℤ such that for all x ∈ 𝒫, T(x) = x + 1.
+
+Theorem 3.4.7.
+
+    a. 1 ∈ 𝒫.
+    b. For all x ∈ 𝒫, T(x) ∈ 𝒫.
+    c. Let x ∈ 𝒫.  1 ≠ T(x) = x + 1.
+    d. Let x, y ∈ 𝒫.  If T(x) = T(y) then x = y.
+    e. Let A : Set(ℤ).  Suppose that A ⊆ 𝒫.  Also suppose that 1 ∈ A and for all x ∈ A, x + 1 ∈ A.  Then A = 𝒫.  [induction on ℤ]
+
+Proof.
+
+    a. z(2, 1) = 1 and 1 < 2.
+
+    b. Follows from Lemma 3.4.5.c and the fact that 1 ∈ 𝒫.
+
+    c. If 1 = x + 1 then x = 0, contradicting Lemma 3.4.5.a.
+
+    d. If x + 1 = y + 1 then x = y by Theorem 3.3.1.a.
+
+    e. Let B = { n : ℕ | z(n + 1, 1) ∈ A }.  First, 1 ∈ B since z(1 + 1, 1) = z(2, 1) = 1 ∈ A.  Next, let n ∈ B.  So z(n + 1, 1) ∈ A.  Hence z(n + 1, 1) + 1 ∈ A.  But
+
+        z(n + 1, 1) + 1 = z(n + 1, 1) + z(2, 1) = z(n + 1 + 2, 1 + 1)
+                                 = z((n + 1) + 1, 1).
+
+    Hence n + 1 ∈ B.  We have shown that for all n ∈ B, n + 1 ∈ B.  Hence by [induction on ℕ] B = ℕ.  Thus for every n : ℕ, z(n + 1, 1) ∈ A.
+
+    It suffices then to show that for every a ∈ 𝒫, a = z(n + 1, 1) for some n : ℕ.  To see this, let a ∈ 𝒫 .  There are some k, i : ℕ such that a = z(k, i).  Since a ∈ 𝒫, k > i.  Hence k = i + j for some j : ℕ.  Thus (k, i) ~ (j + 1, 1) since k + 1 = j + 1 + i.  Therefore a = z(k, i) = z(j + 1, 1) for some j : ℕ.
+
+# We have shown that the positive integers 𝒫 form a Peano system, so the theorems we have proved about ℕ should now be applicable to 𝒫 as well.  Here we reassert some of our theorems about ℕ as axioms on 𝒫.
+
+# restatement of Exercise 2.4.4.1, applied to 𝒫
+
+Axiom 3.4.7.1.  For all x, y ∈ 𝒫, x < y if and only if x + 1 ≤ y.
+
+# restatement of Theorem 2.4.5 (Least Number Principle), applied to 𝒫
+
+Definition.  For all A : Set(ℤ) and z : ℤ, z is a least element of A if z ∈ A and for all u : ℤ, if u ∈ A then z ≤ u.
+
+Axiom 3.4.7.2.  Let A : Set(ℤ).  Suppose that A ⊆ 𝒫 and A is nonempty.  Then there exists some x : ℤ such that x is a least element of A.
+
+# Absolute value function
+
+Axiom 3.4.7.3.  There is a function abs : ℤ → ℤ such that for all x : ℤ,
+
+    a. If 0 ≤ x then |x| = x.
+    b. If x < 0 then |x| = −x.
+
+Theorem 3.4.8.  Let x, y, z, u, v : ℤ.
+
+    a. 0 ≤ |x|.
+    b. |x| = 0 if and only if x = 0.
+    c. |−x| = |x|.
+    d. |x − y| = |y − x|.
+    e. |x · y| = |x| · |y|.
+    f. −|x| ≤ x ≤ |x|.
+    g. |z| < u if and only if −u < z < u.
+    h. |z| ≤ u if and only if −u ≤ z ≤ u.
+    i. If u ≥ v and u ≥ −v then u ≥ |v|.
+    j. |x + y| ≤ |x| + |y|.     [triangle inequality]
+    k. |x − y| ≥ ||x| − |y||.
+
+Proof.
+
+    a. If 0 ≤ x then |x| = x ≥ 0.  If x < 0 then |x| = −x > 0 by Theorem 3.4.2.d.
+
+    b. If x = 0 then |x| = x = 0.  If x ≠ 0 then 0 < x or x < 0.  If 0 < x then |x| = x > 0.  If x < 0 then |x| = −x > 0.
+
+    c. If 0 < x then −x < 0, so |x| = x and |−x| = −(−x) = x.  If 0 = x, then −x = 0 = x.  If x < 0, then −x > 0, so |x| = −x and |−x| = −x.
+
+    d. x − y = −(y − x).  The result follows by (c).
+
+    e. Suppose that x = 0 or y = 0.  Then x · y = 0.  Therefore |x · y| = 0.  Also, |x| = 0 or |y| = 0.  Hence |x| · |y| = 0.
+
+    Now suppose that 0 < x and 0 < y.  Then 0 < x · y, and |x · y| = x · y.  Also, |x| = x and |y| = y.
+
+    Now suppose that x < 0 and y < 0.  Then 0 < x · y.  Hence |x · y| = x · y and |x| = −x and |y| = −y.  But (−x) · (−y) = x · y.
+
+    Now suppose that x < 0 and y > 0.  Then x · y < 0.  Hence |x · y| = −(x · y) and |x| = −x and |y| = y.  But (−x) · y = −(x · y).
+
+    Now suppose that 0 < x and y < 0.  Then |x · y| = |x| · |y| by a similar argument.
+
+    f. Suppose that 0 < x.  Then |x| = x.  Hence −|x| < 0.  Thus −|x| < x and x = |x|.
+
+    Now suppose that 0 = x.  Then −|x| = x and x = |x|.
+
+    Now suppose that x < 0.  Then |x| = −x.  Hence −|x| = x, and 0 < |x|.  Hence −|x| = x and x < |x|.
+
+    g. Assume that |z| < u.  By (f), z ≤ |z|.  Hence z < u.  By (f), −|z| ≤ z.  But −|z| > −u since |z| < u.  Hence −u < z.  Conversely, assume that −u < z < u.  If |z| = z, then |z| < u.  If |z| = −z then −u < −|z|.  Hence |z| < u.
+
+    h. Similar to (g).
+
+    i. Assume that u ≥ v and u ≥ −v.  If 0 ≤ v then |v| = v.  If v < 0 then |v| = −v.  In either case, u ≥ |v|.
+
+    j. −|x| ≤ x ≤ |x|, and −|y| ≤ y ≤ |y|.  So
+
+        (−|x|) + (−|y|) ≤ x + y ≤ |x| + |y|.
+
+    Hence −(|x| + |y|) ≤ x + y ≤ |x| + |y|.  By (h) we obtain |x + y| ≤ |x| + |y|.
+
+    k. |x| = |y + (x − y)| ≤ |y| + |x − y| by (j).  Therefore |x − y| ≥ |x| − |y|.  Similarly, |y − x| ≥ |y| − |x|.  But |x − y| = |y − x| by (d).  Hence
+
+        |x − y| ≥ |x| − |y|     and     |x − y| ≥ |y| − |x|.
+
+    Notice that |y| − |x| = −(|x| − |y|).  Hence |x − y| ≥ ||x| − |y||.
