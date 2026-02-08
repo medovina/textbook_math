@@ -1,0 +1,44 @@
+using div;
+
+# Relative primality
+
+Definition.  Let a, b : ℤ.  a and b are relatively prime if for all c : ℤ with c > 0, if c | a and c | b then c = 1.
+
+Lemma 3.5.3.1.  Let a, b : ℤ.  a and b are relatively prime if and only if the gcd of a and b is 1.
+
+Proof.  Suppose that a and b are relatively prime.  Let c : ℤ, and suppose that c is the gcd of a and b.  Then c ≯ 1.  Now suppose that the gcd of a and b is 1.  Let c : ℤ.  If c | a and c | b and c > 0 then c | 1, so c = 1.
+
+Lemma 3.5.4.  Let a, b : ℤ.  a and b are relatively prime if and only if 1 = xa + yb for some x, y : ℤ.
+
+Proof.  If a and b are relatively prime, then the gcd of a and b is 1, so 1 = xa + yb for some x, y : ℤ by Theorem 3.5.3.  Conversely, suppose that 1 = xa + yb for some x, y : ℤ.  Let c : ℤ.  If c | a and c | b then c | xa + yb, so c | 1.  But for all d : ℤ, if d > 0 and d | 1 then d = 1.
+
+# Prime numbers
+
+Definition.  Let a : ℤ.  a is prime if and only if a > 1 and for all c : ℤ, if c > 0 and c | a then c = a or c = 1.  a is composite if and only if a is not prime.
+
+Lemma 3.5.5.  Let a : ℤ with a > 1.  Then there is some p : ℤ such that p is prime and p | a.
+
+Proof.  Let A = { a : ℤ | a > 1 and there is no p : ℤ such that p is prime and p | a }.  Assume that A ≠ ∅.  There is some b : ℤ such that b is a least element of A.  Then 1 < b and there is no p : ℤ such that p is prime and p | b.
+
+Suppose that b is prime.  But b | b, contradicting the fact that there is no p : ℤ such that p is prime and p | b.
+
+Now suppose that b is not prime.  By definition, there is some c : ℤ such that c > 0 and c | b and c ≠ b and c ≠ 1.  Since c | b, it follows by Theorem 3.5.2.e that c < b.  Hence c ∉ A.  So there is some p : ℤ such that p is prime and p | c.  Then p | b, contradicting the fact that b ∈ A.
+
+In any case we have a contradiction.  Hence A is empty.
+
+# Definition of the product of a sequence
+
+Axiom.  For all a : ℤ → ℤ and i, j : ℤ, the product aᵢ ··· aⱼ : ℤ is defined as follows:
+
+    a. If j < i then aᵢ ··· aⱼ = 1.
+    b. If i ≤ j then aᵢ ··· aⱼ = aᵢ · (aᵢ₊₁ ··· aⱼ).
+
+# Euclid's theorem on the infinitude of primes
+
+Theorem 3.5.6.  { x : ℤ | x is prime } is infinite.
+
+Proof.  Let P = { x : ℤ | x is prime }.  Assume that P is finite.  Then there is some k : ℤ and q : ℤ → ℤ such that P = { x : ℤ | x = qᵢ for some i : ℤ with 1 ≤ i ≤ k }.  Let
+
+    u = (q₁ ··· qₖ) + 1.
+
+Clearly u > 1.  By Lemma 3.5.5 there is some p : ℤ such that p is prime and p | u.  Hence p = qⱼ for some j : ℤ with 1 ≤ j ≤ k.  Hence p | u and p | (q₁ ··· qₖ).  Therefore p | 1 since 1 = u − (q₁ ··· qₖ).  Hence p = 1, contradicting the fact that p is a prime.  Therefore { x : ℤ | x is prime } is infinite.
